@@ -26,7 +26,7 @@ import VueApexCharts from "vue3-apexcharts";
 
 export default {
   components: {
-    apexchart: VueApexCharts,
+    apexchart: VueApexCharts
   },
 
   data: function () {
@@ -34,18 +34,21 @@ export default {
       type: "bar",
       chartOptions: {
         chart: {
-          id: "vuechart-example",
+          id: "vuechart-example"
         },
         xaxis: {
-          categories: [30, 40, 45, 50, 49, 60, 70, 81]
-        },
+          categories: [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010]
+        }
       },
       series: [
         {
           name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 81],
-        },
+          data: this.workCount
+        }
       ],
+      years: [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010],
+      workCount: [],
+      selected: ""
     };
   },
 
