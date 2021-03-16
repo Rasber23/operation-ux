@@ -1,5 +1,17 @@
 <template>
   <div>
+    <chart-component :arrayData="workCount"></chart-component>
+    <select v-model="selected" @change="clicked">
+      <option disabled value="">Please select one</option>
+      <option>love</option>
+      <option>crime</option>
+      <option>dance</option>
+    </select>
+    <br /><br />
+    <span v-for="work in workCount" :key="work.id">
+      {{ work + " " }}
+    </span>
+    <br /><br />
     <apexchart
       :type="type"
       width="550"
@@ -26,7 +38,7 @@ export default {
           id: "vuechart-example",
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
+          categories: this.years
         },
       },
       series: [
@@ -35,32 +47,33 @@ export default {
           data: [30, 40, 45, 50, 49, 60, 70, 81],
         },
       ],
+      years: [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010],
+      workCount: [],
+      selected: "",
     };
   },
 
   methods: {
-    updateChart() {
-      const max = 90;
-      const min = 20;
-      const newData = this.series[0].data.map(() => {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      });
+    async workCountForSubject() {
+      for (let i = 0; i < 10; i++) {
+        let resp = await fetch(
+          "http://openlibrary.org/subjects/" +
+            this.selected +
+            ".json?published_in=" +
+            this.years[i]
+        );
+        let subject = await resp.json();
+        this.workCount.push(subject.work_count);
+      }
+      return this.workCount;
+      // console.log(this.workCount);
+    },
 
-      const colors = ["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0"];
-
-      // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
-      this.chartOptions = {
-        colors: [colors[Math.floor(Math.random() * colors.length)]],
-      };
-
-      // In the same way, update the series option
-      this.series = [
-        {
-          data: newData,
-        },
-      ];
-      /** If i try to change the type i will get an error */
-      this.type = "line";
+    // dubbelklick är ett problem här, hur prevent?
+    clicked(event) {
+      this.workCount.length = 0;
+      this.typeOfSubject = event.target.value;
+      this.workCountForSubject();
     },
   },
 };
