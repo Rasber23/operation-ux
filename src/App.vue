@@ -2,20 +2,24 @@
   <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Welcome to Your Vue.js App" />
   <ContentContainer></ContentContainer>
+  <line-chart></line-chart>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import ContentContainer from "@/components/ContentContainer";
+import LineChart from './components/LineChart.vue';
 
 export default {
   name: "App",
   components: {
     ContentContainer,
-    HelloWorld
+    HelloWorld,
+    LineChart
   }
 };
 </script>
+    LineChart
 
 <style>
 #app {

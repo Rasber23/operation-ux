@@ -1,6 +1,5 @@
 <template>
   <div>
-    <chart-component :arrayData="workCount"></chart-component>
     <select v-model="selected" @change="clicked">
       <option disabled value="">Please select one</option>
       <option>love</option>
@@ -38,7 +37,7 @@ export default {
           id: "vuechart-example",
         },
         xaxis: {
-          categories: this.years
+          categories: [30, 40, 45, 50, 49, 60, 70, 81]
         },
       },
       series: [
@@ -47,9 +46,6 @@ export default {
           data: [30, 40, 45, 50, 49, 60, 70, 81],
         },
       ],
-      years: [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010],
-      workCount: [],
-      selected: "",
     };
   },
 
