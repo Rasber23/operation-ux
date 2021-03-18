@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import VueApexCharts from "vue3-apexcharts";
+import VueApexCharts from "vue3-apexcharts"
 
 export default {
   components: {
@@ -33,25 +33,14 @@ export default {
 
   data() {
     return {
-      type: "line",
       chartOptions: {
         chart: {
+          type: "line",
           id: "vuechart-example",
           toolbar: {show: false},
         },
         xaxis: {
-          categories: [
-            1920,
-            1930,
-            1940,
-            1950,
-            1960,
-            1970,
-            1980,
-            1990,
-            2000,
-            2010,
-          ],
+          categories: [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010],
         },
         stroke: {
           curve: "smooth",
@@ -66,12 +55,16 @@ export default {
             toggleDataSeries: true,
           },
           // responsive fungerar ej?
-          // responsive: [
-          //   {
-          //     breakpoint: 1000,
-          //     type: "bar"
-          //   },
-          // ],
+          responsive: [
+            {
+              breakpoint: 1000,
+              options: {
+                chart: {
+                  type: "bar"
+                }
+              }
+            },
+          ],
           itemMargin: {
             horizontal: 10,
             vertical: 5,
@@ -86,32 +79,74 @@ export default {
       ],
       years: [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010],
       workCount: [],
+      // workCountCrime: [],
+      arrayContainer: [],
       selected: "",
-    };
+    }
   },
 
   methods: {
+    // en metod som kollar om knappen redan är tryckt och isåfall inte ladda in igen
+    // kollar om selected redan finns i en array - isf don't do it
     async workCountForSubject() {
       for (let i = 0; i < 10; i++) {
         let resp = await fetch(
-            "http://openlibrary.org/subjects/" +
-            this.selected +
-            ".json?published_in=" +
-            this.years[i]
-        );
-        let subject = await resp.json();
-        this.workCount.push(subject.work_count);
+          "http://openlibrary.org/subjects/" + this.selected + ".json?published_in=" + this.years[i]
+        )
+        let subject = await resp.json()
+        this.workCount.push(subject.work_count)
       }
-      this.updateChart();
+      this.arrayFactory(this.selected, this.workCount)
+      this.updateChart()
+      console.log(this.arrayContainer)
       // return this.workCount;
       // console.log(this.workCount);
     },
 
+    // make array of arrays with subject
+    arrayFactory(subject, serie) {
+      let query = {
+        subject: subject,
+        serie: serie,
+      }
+
+      console.log(query)
+
+      if (this.arrayContainer.length === 0) {
+        this.arrayContainer.push(query)
+        console.log("la till första array " + subject)
+      } else {
+        // console.log(array.subject);
+        console.log(this.arrayContainer.includes(query))
+        if (this.arrayContainer.includes(query)) {
+          console.log("den här fanns redan")
+        } else {
+          this.arrayContainer.push(query)
+        }
+
+        // for (let i = 0; i < this.arrayContainer.length; i++) {
+        //   console.log(this.arrayContainer[i].subject);
+        //   console.log(subject);
+        //   if (this.arrayContainer[i].subject === subject) {
+        //     console.log("vi är inne i if-satsen");
+        //     break;
+        //   } else {
+        //     this.arrayContainer.push(query);
+        //     console.log("la till en array" + subject);
+        //     break;
+        //   }
+        // }
+      }
+
+      // console.log(this.arrayContainer[1].subject)
+      // console.log(this.arrayContainer[2].subject)
+    },
+
     // dubbelklick är ett problem här, hur prevent?
     clicked(event) {
-      this.workCount.length = 0;
-      this.selected = event.target.value;
-      this.workCountForSubject();
+      this.workCount.length = 0
+      this.selected = event.target.value
+      this.workCountForSubject()
     },
     // kanske istället fylla i knappar och sen trycka uppdatera? enklare?
     updateChart() {
@@ -128,10 +163,10 @@ export default {
           name: "fantasy",
           data: [55, 42, 98, 89, 12, 1, 23, 34, 200, 10],
         },
-      ];
+      ]
     },
   },
-};
+}
 </script>
 <style scoped>
 div.chart-wrapper {
