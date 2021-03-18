@@ -7,17 +7,17 @@
       <option>crime</option>
       <option>dance</option>
     </select>
-    <br /><br />
+    <br/><br/>
     <span v-for="work in workCount" :key="work.id">
       {{ work + " " }}
     </span>
-    <br /><br />
+    <br/><br/>
     <div class="chart-wrapper">
       <apexchart
-        :type="type"
-        width="550"
-        :options="chartOptions"
-        :series="series"
+          :type="type"
+          width="550"
+          :options="chartOptions"
+          :series="series"
       ></apexchart>
     </div>
   </div>
@@ -37,7 +37,7 @@ export default {
       chartOptions: {
         chart: {
           id: "vuechart-example",
-          toolbar: { show: false },
+          toolbar: {show: false},
         },
         xaxis: {
           categories: [
@@ -94,7 +94,7 @@ export default {
     async workCountForSubject() {
       for (let i = 0; i < 10; i++) {
         let resp = await fetch(
-          "http://openlibrary.org/subjects/" +
+            "http://openlibrary.org/subjects/" +
             this.selected +
             ".json?published_in=" +
             this.years[i]

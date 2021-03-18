@@ -1,12 +1,17 @@
 <template>
   <div>
+    <select v-model="selected" @change="clicked">
+      <option disabled value="">Välj ett år</option>
+      <option>2020</option>
+      <option>2010</option>
+      <option>2000</option>
+    </select><br>
     <apexchart
         :type="type"
         width="550"
-      :options="chartOptions"
+        :options="chartOptions"
         :series="series"
     ></apexchart>
-    <button @click="updateChart">Update!</button>
   </div>
 </template>
 
@@ -20,48 +25,67 @@ export default {
 
   data: function () {
     return {
-      type: "bar",
+      listOfdata:[],
+      listOfSubjects:[],
+      selected: 0,
+      series: [{
+        data: []
+      }],
       chartOptions: {
         chart: {
-          id: "vuechart-example",
+          type: "bar",
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 4,
+            horizontal: true,
+            dataLabels: {
+              position: 'end'
+            },
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          style: {
+            colors: ['#333333']
+
+          },
+          offsetX: 30
         },
         xaxis: {
-          categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998],
-        },
-      },
-      series: [
-        {
-          name: "series-1",
-          data: [30, 40, 45, 50, 49, 60, 70, 81],
-        },
-      ],
+          categories: []
+        }
+      }
     };
   },
+  created() {
+    const ListOfSubjects=["dance","film","painting","design","music"]
 
-  methods: {
-    updateChart() {
-      const max = 90;
-      const min = 20;
-      const newData = this.series[0].data.map(() => {
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-      });
+    for(const subject of ListOfSubjects) {
+     this.loadApi(subject)
 
-      const colors = ["#008FFB", "#00E396", "#FEB019", "#FF4560", "#775DD0"];
-
-      // Make sure to update the whole options config and not just a single property to allow the Vue watch catch the change.
-      this.chartOptions = {
-        colors: [colors[Math.floor(Math.random() * colors.length)]],
-      };
-
-      // In the same way, update the series option
-      this.series = [
-        {
-          data: newData,
-        },
-      ];
-      /** If i try to change the type i will get an error */
-      this.type = "line";
-    },
+    }
+    this.series[0].data=this.listOfdata
+    this.chartOptions.xaxis.categories= this.listOfSubjects
   },
-};
+  methods: {
+    async loadApi(subject) {
+      console.log(subject);
+
+      const apiResp = await fetch(`https://openlibrary.org/subjects/${subject}.json?published_in=2000`);
+      const apiData = await apiResp.json()
+      console.log(await apiData.work_count)
+      this.listOfdata.push(await apiData.work_count)
+      this.listOfSubjects.push(await apiData.name)
+      console.log("test"+this.series[0].data)
+
+      }
+
+    }
+
+  }
 </script>
+<style scoped>
+
+</style>

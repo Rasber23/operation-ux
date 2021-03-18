@@ -1,7 +1,10 @@
 <template>
+  <div>
 <bar-chart></bar-chart>
   <book-of-death></book-of-death>
+  </div>
 </template>
+
 
 <script>
 import BarChart from "@/components/BarChart";
@@ -13,5 +16,9 @@ export default {
 </script>
 
 <style scoped>
-
+div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 </style>
