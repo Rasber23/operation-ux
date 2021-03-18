@@ -1,6 +1,5 @@
 <template>
   <h1>Hej TAFFY KÄT</h1>
-
 </template>
 
 <script>

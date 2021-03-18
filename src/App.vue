@@ -8,7 +8,7 @@
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
 import ContentContainer from "@/components/ContentContainer";
-import LineChart from './components/LineChart.vue';
+import LineChart from "./components/LineChart.vue";
 
 export default {
   name: "App",
@@ -30,5 +30,4 @@ LineChart
   color: #2c3e50;
   margin-top: 60px;
 }
-
 </style>
