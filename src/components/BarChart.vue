@@ -8,7 +8,6 @@
     </select
     ><br/>
     <apexchart
-        :type="type"
         width="550"
         :options="chartOptions"
         :series="series"
@@ -31,7 +30,7 @@ export default {
       selected: 0,
       series: [
         {
-          data: [1, 2, 3, 4, 5]
+          data: []
         }
       ],
       chartOptions: {
@@ -56,16 +55,21 @@ export default {
           // offsetY: 30
         },
         xaxis: {
-          categories: ["start"]
+          categories: []
         }
       }
     };
   },
-   created() {
+  async created() {
     const ListOfSubjects = ["dance", "film", "painting", "design", "music"];
+    const promises=[];
 
     for (const subject of ListOfSubjects) {
-       this.loadApi(subject);
+      promises.push(this.loadApi(subject));
+    }
+
+    for(const p of promises) {
+     await p
     }
 
     this.updateChart()
@@ -95,17 +99,11 @@ export default {
         {
           data: this.listOfdata
         }]
-      this.chartOptions.xaxis = {
-        categories: this.listOfSubjects
+      this.chartOptions.xaxis.categories.length = 0
+      this.chartOptions.xaxis.categories.push(...this.listOfSubjects)
       }
     }
 
-  },
-  mounted() {
-
-    //this.updateChart()
-    //setTimeout(()=>this.updateChart(),3000)
-  }
 };
 </script>
 <style scoped></style>
