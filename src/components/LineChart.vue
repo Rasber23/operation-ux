@@ -103,6 +103,7 @@ export default {
         this.workCount.push(subject.work_count);
       }
       this.updateChart();
+
       // return this.workCount;
       // console.log(this.workCount);
     },

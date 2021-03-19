@@ -4,13 +4,14 @@
       <option disabled value="">Välj ett år</option>
       <option>2020</option>
       <option>2010</option>
-      <option>2000</option> </select
-    ><br />
+      <option>2000</option>
+    </select
+    ><br/>
     <apexchart
-      :type="type"
-      width="550"
-      :options="chartOptions"
-      :series="series"
+        :type="type"
+        width="550"
+        :options="chartOptions"
+        :series="series"
     ></apexchart>
   </div>
 </template>
@@ -23,14 +24,14 @@ export default {
     apexchart: VueApexCharts
   },
 
-  data: function() {
+  data: function () {
     return {
       listOfdata: [],
       listOfSubjects: [],
       selected: 0,
       series: [
         {
-          data: []
+          data: [1, 2, 3, 4, 5]
         }
       ],
       chartOptions: {
@@ -52,36 +53,58 @@ export default {
           style: {
             colors: ["#333333"]
           },
-          offsetX: 30
+          // offsetY: 30
         },
         xaxis: {
-          categories: []
+          categories: ["start"]
         }
       }
     };
   },
-  created() {
+   created() {
     const ListOfSubjects = ["dance", "film", "painting", "design", "music"];
 
     for (const subject of ListOfSubjects) {
-      this.loadApi(subject);
+       this.loadApi(subject);
     }
-    this.series[0].data = this.listOfdata;
-    this.chartOptions.xaxis.categories = this.listOfSubjects;
+
+    this.updateChart()
+
+    // this.series[0].data = this.listOfdata;
+    //this.chartOptions.xaxis.categories = this.listOfSubjects;
   },
   methods: {
     async loadApi(subject) {
       console.log(subject);
 
       const apiResp = await fetch(
-        `https://openlibrary.org/subjects/${subject}.json?published_in=2000`
+          `https://openlibrary.org/subjects/${subject}.json?published_in=2000`
       );
       const apiData = await apiResp.json();
       console.log(await apiData.work_count);
-      this.listOfdata.push(await apiData.work_count);
-      this.listOfSubjects.push(await apiData.name);
-      console.log("test" + this.series[0].data);
+      this.listOfdata.push(apiData.work_count);
+      this.listOfSubjects.push(apiData.name);
+      console.log(this.series[0].data);
+    },
+
+    updateChart() {
+      console.log("subs:", this.listOfSubjects)
+      console.log("list:", this.listOfdata)
+
+      this.series = [
+        {
+          data: this.listOfdata
+        }]
+      this.chartOptions.xaxis = {
+        categories: this.listOfSubjects
+      }
     }
+
+  },
+  mounted() {
+
+    //this.updateChart()
+    //setTimeout(()=>this.updateChart(),3000)
   }
 };
 </script>
