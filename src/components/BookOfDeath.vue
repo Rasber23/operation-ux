@@ -1,11 +1,31 @@
 <template>
-  <h1>:3</h1>
+  <h1>Taffy KÄT</h1>
 </template>
 
 <script>
+
 export default {
-  name: "BookOfDeath"
-};
+  name: "BookOfDeath",
+
+  data(){
+    return{
+    isAlive: true
+    }
+  },
+  methods:{
+    getData(){
+    //fetch APi//retunera NUMfound
+    },
+    calculateDeath(){
+      //numfound*Något > NÅGot
+      //this.isAlive= truefalse
+    }
+  }
+}
 </script>
 
-<style scoped></style>
+<style scoped>
+h1{
+  color:black;
+}
+</style>

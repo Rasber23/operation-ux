@@ -2,8 +2,8 @@
 
 <script>
 export default {
-  name: "Hamburger"
-};
+  name: "Hamburger",
+}
 </script>
 
 <style scoped></style>
