@@ -1,18 +1,26 @@
 <template>
-  <div>
-    <select v-model="selected" @change="clicked">
-      <option  :value="selected">{{selected}}</option>
-      <option>2020</option>
-      <option>2010</option>
-      <option>2000</option>
-      <option>1990</option>
-      <option>1980</option>
-      <option>1970</option>
-      <option>1960</option>
-      <option>1500</option>
-    </select
-    ><br />
-    <apexchart width="550" :options="chartOptions" :series="series"></apexchart>
+  <div class="bigCon">
+    <div class="con">
+      <div>
+    <h1>Lorem ipsum.</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos saepe vitae.</p>
+      </div>
+      <div>
+        <select v-model="selected" @change="clicked">
+        <option  :value="selected">{{selected}}</option>
+        <option>2020</option>
+        <option>2010</option>
+        <option>2000</option>
+        <option>1990</option>
+        <option>1980</option>
+        <option>1970</option>
+        <option>1960</option>
+        <option>1500</option>
+      </select><br>
+      <apexchart width="550" :options="chartOptions" :series="series"></apexchart>
+      </div>
+    </div>
+
   </div>
 </template>
 
@@ -83,9 +91,6 @@ export default {
   },
   methods: {
     async loadApi(subject) {
-      console.log(subject)
-
-
       const apiResp = await fetch(`https://openlibrary.org/subjects/${subject}.json?published_in=${this.selected}`)
       const apiData = await apiResp.json()
       console.log(await apiData.work_count)
@@ -129,4 +134,20 @@ export default {
   },
 }
 </script>
-<style scoped></style>
+<style scoped>
+p{
+  color: black;
+}
+h1{
+  color:black;
+}
+.con{
+  display: flex;
+  flex-direction: row;
+}
+
+.bigCon{
+  padding-top: 10em;
+
+}
+</style>
