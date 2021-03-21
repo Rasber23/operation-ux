@@ -6,12 +6,12 @@
 </template>
 
 <script>
-import BarChart from "@/components/BarChart";
-import BookOfDeath from "@/components/BookOfDeath";
+import BarChart from "@/components/BarChart"
+import BookOfDeath from "@/components/BookOfDeath"
 export default {
   name: "ContentContainer",
-  components: { BookOfDeath, BarChart }
-};
+  components: { BookOfDeath, BarChart },
+}
 </script>
 
 <style scoped>
