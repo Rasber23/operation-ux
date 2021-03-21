@@ -8,10 +8,6 @@
       <option>dance</option>
     </select>
     <br /><br />
-    <span v-for="work in workCount" :key="work.id">
-      {{ work + " " }}
-    </span>
-    <br /><br />
     <div class="chart-wrapper">
       <apexchart :type="type" width="550" :options="chartOptions" :series="series"></apexchart>
     </div>
@@ -20,11 +16,16 @@
 
 <script>
 import VueApexCharts from "vue3-apexcharts"
+import FetchService from "../services/FetchService"
 
 export default {
   components: {
     apexchart: VueApexCharts,
   },
+  //   hur hämtar jag in från flera olika?
+  //   created() {
+  //     this.fetch();
+  //   },
 
   data() {
     return {
@@ -35,7 +36,19 @@ export default {
           toolbar: { show: false },
         },
         xaxis: {
-          categories: [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010],
+          categories: [
+            1920,
+            // 1930,
+            1940,
+            // 1950,
+            1960,
+            // 1970,
+            1980,
+            // 1990,
+            2000,
+            // 2010,
+            2020,
+          ],
         },
         stroke: {
           curve: "smooth",
@@ -46,75 +59,91 @@ export default {
           showForZeroSeries: false,
           position: "top",
           fontSize: "25px",
-          onItemClick: {
-            toggleDataSeries: true,
+          //nu gör den nånting onClick - lägga till kryssruta istället?
+          // hitta vilken serie den tillhör och ta bort den från listan
+          //hitta något som gör att det inte laddar om alla, bara dem som du vill se.
+          markers: {
+            shape: "square",
+            onClick: function(seriesIndex) {
+              console.log(seriesIndex.data.activeSeriesIndex + "detta är series index")
+              // this.series.splice(seriesIndex.data.activeSeriesIndex, 1)
+            },
           },
-          // responsive fungerar ej?
-          // responsive: [
-          //   {
-          //     breakpoint: 1000,
-          //     type: "bar"
-          //   },
-          // ],
+          // onItemClick: {
+          //   toggleDataSeries: true,
+          // },
           itemMargin: {
             horizontal: 10,
             vertical: 5,
           },
         },
+        // responsive: [
+        //   {
+        //     breakpoint: 610,
+        //     options: {
+        //       chart: {
+        //         width: "100%",
+        //         height: 300,
+        //         type: 'line'
+        //       },
+        //     },
+        //   },
+        // ],
       },
       series: [
         {
-          name: "science fiction",
-          data: [2, 4, 7, 4, 2, 778, 9, 9, 9, 90],
+          name: "Crime",
+          data: [1, 2, 3, 4, 5, 6],
         },
       ],
-      years: [1920, 1930, 1940, 1950, 1960, 1970, 1980, 1990, 2000, 2010],
-      workCount: [],
+
       selected: "",
+      workCount: [],
+      arrayOfSubjects: [],
+      arrayOfWorkCount: [],
+      test: {},
     }
   },
 
   methods: {
-    async workCountForSubject() {
-      for (let i = 0; i < 10; i++) {
-        let resp = await fetch(
-          "http://openlibrary.org/subjects/" + this.selected + ".json?published_in=" + this.years[i]
-        )
-        let subject = await resp.json()
-        this.workCount.push(subject.work_count)
-      }
-      this.updateChart()
-
-      // return this.workCount;
-      // console.log(this.workCount);
-    },
-
     // dubbelklick är ett problem här, hur prevent?
     clicked(event) {
-      this.workCount.length = 0
       this.selected = event.target.value
-      this.workCountForSubject()
+      console.log(this.selected)
+      this.fetch()
     },
-    // kanske istället fylla i knappar och sen trycka uppdatera? enklare?
+
+    async fetch() {
+      //   this.arrayOfworkCount = 0;
+      if (!this.arrayOfSubjects.includes(this.selected)) {
+        this.workCount = await FetchService.workCountForSubject(this.selected)
+        this.arrayOfSubjects.push(this.selected)
+        this.arrayOfWorkCount.push(this.workCount)
+        console.log(this.workCount)
+        console.log(this.arrayOfWorkCount)
+        console.log(this.arrayOfSubjects)
+        console.log(this.arrayOfSubjects.length)
+        this.updateChart()
+      } else {
+        console.log("nothing was done")
+      }
+    },
+
     updateChart() {
-      this.series = [
-        {
-          name: this.selected,
-          data: this.workCount,
-        },
-        {
-          name: "medicine",
-          data: [45, 23, 53, 15, 6, 3, 5, 66, 2, 85],
-        },
-        {
-          name: "fantasy",
-          data: [55, 42, 98, 89, 12, 1, 23, 34, 200, 10],
-        },
-      ]
+      this.series = []
+      for (let i = 0; i < this.arrayOfSubjects.length; i++) {
+        this.test = {
+          name: this.arrayOfSubjects[i],
+          data: this.arrayOfWorkCount[i],
+        }
+        this.series.push(this.test)
+        console.log(this.series)
+      }
     },
   },
 }
 </script>
+
 <style scoped>
 div.chart-wrapper {
   display: flex;
