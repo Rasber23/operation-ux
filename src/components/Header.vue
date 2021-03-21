@@ -1,9 +1,8 @@
 <template>
   <div class="nav">
-
-      <router-link to="/">
-        <img src="http://placekitten.com/100/20" alt=""/>
-      </router-link>
+    <router-link to="/">
+      <img src="http://placekitten.com/100/20" alt="" />
+    </router-link>
 
     <div class="menuCon">
       <input class="navButton" type="button" value="charts" @click="navigate" />
@@ -26,12 +25,15 @@ export default {
 <style scoped>
 .menuCon {
   margin: 0;
-  pading: 0;
+  padding: 0.5em;
   display: flex;
   justify-content: center;
 }
-
-
+img {
+  display: flex;
+  align-self: center;
+  margin-left: 1em;
+}
 
 .nav {
   padding: 5px;
