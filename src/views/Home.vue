@@ -15,8 +15,8 @@
       veniam, veritatis. Amet blanditiis consectetur dignissimos dolore dolores facere facilis illum, iste magnam
       obcaecati odio perferendis perspiciatis quam quibusdam rem repellendus rerum tenetur, veritatis vero.
     </p>
+    <img src="http://placekitten.com/400/400" alt="" />
   </div>
-  <img src="http://placekitten.com/400/400" alt="" />
 </template>
 
 <script>
@@ -28,5 +28,6 @@ export default {
 <style scoped>
 .textCon {
   padding: 2em;
+  text-align: center;
 }
 </style>
