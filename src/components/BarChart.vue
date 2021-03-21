@@ -1,10 +1,16 @@
 <template>
   <div>
     <select v-model="selected" @change="clicked">
-      <option disabled value="">Välj ett år</option>
+      <option  :value="selected">{{selected}}</option>
       <option>2020</option>
       <option>2010</option>
-      <option>2000</option> </select
+      <option>2000</option>
+      <option>1990</option>
+      <option>1980</option>
+      <option>1970</option>
+      <option>1960</option>
+      <option>1500</option>
+    </select
     ><br />
     <apexchart width="550" :options="chartOptions" :series="series"></apexchart>
   </div>
@@ -22,7 +28,7 @@ export default {
     return {
       listOfdata: [],
       listOfSubjects: [],
-      selected: 0,
+      selected: 2000,
       series: [
         {
           data: [],
@@ -30,6 +36,9 @@ export default {
       ],
       chartOptions: {
         chart: {
+          toolbar:{
+            show:false
+          },
           type: "bar",
           height: 350,
         },
@@ -76,26 +85,47 @@ export default {
     async loadApi(subject) {
       console.log(subject)
 
-      const apiResp = await fetch(`https://openlibrary.org/subjects/${subject}.json?published_in=2000`)
+
+      const apiResp = await fetch(`https://openlibrary.org/subjects/${subject}.json?published_in=${this.selected}`)
       const apiData = await apiResp.json()
       console.log(await apiData.work_count)
       this.listOfdata.push(apiData.work_count)
       this.listOfSubjects.push(apiData.name)
-      console.log(this.series[0].data)
+      console.log("data",this.series[0].data)
     },
 
     updateChart() {
-      console.log("subs:", this.listOfSubjects)
-      console.log("list:", this.listOfdata)
 
       this.series = [
         {
           data: this.listOfdata,
         },
       ]
-      this.chartOptions.xaxis.categories.length = 0
+
+      this.chartOptions.xaxis.categories.length = 0;
+      this.listOfSubjects.length=5
+      console.log("kattiGORIER",this.chartOptions.xaxis.categories.length)
+
       this.chartOptions.xaxis.categories.push(...this.listOfSubjects)
+      console.log("efter",this.chartOptions.xaxis.categories.length)
+
+
     },
+    async clicked(){
+
+      const ListOfSubjects = ["dance", "film", "painting", "design", "music"]
+      const promises = []
+      this.listOfdata.length=[]
+      for (const subject of ListOfSubjects) {
+        promises.push(this.loadApi(subject))
+      }
+
+      for (const p of promises) {
+        await p
+      }
+
+      this.updateChart()
+    }
   },
 }
 </script>
