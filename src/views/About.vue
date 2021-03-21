@@ -9,7 +9,7 @@
 import AboutCard from "@/components/AboutCard";
 export default {
   name: "About",
-  components: {AboutCard},
+  components: { AboutCard },
 }
 </script>
 

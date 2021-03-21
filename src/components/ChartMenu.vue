@@ -33,7 +33,7 @@ export default {
 
   margin: 0;
   height: 100%;
-  width: 30%;
+  width: 15%;
   position: fixed;
   /* overflow-x: hidden; */
 
@@ -48,7 +48,7 @@ export default {
 .right {
   right: 0;
   background-color: #9c9c9d;
-  width: 70%;
+  width: 85%;
   height: 100%;
   overflow-x: hidden;
   color: #ffffff;
@@ -63,8 +63,8 @@ export default {
 }
 
 .big-btn:hover {
-  background-color: #ffffff;
-  color: white;
+  background-color: #e1e1e1;
+  /* color: white; */
 }
 
 button:focus {

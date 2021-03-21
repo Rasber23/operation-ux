@@ -1,15 +1,26 @@
 <template>
-  <div class="border">
-    <h1>Hur har olika genres popularitet förändras genom åren?</h1>
-    <select v-model="selected" @change="clicked">
-      <option disabled value="">Välj ett ämne</option>
-      <option>love</option>
-      <option>crime</option>
-      <option>dance</option>
-    </select>
-    <br /><br />
-    <div class="chart-wrapper">
-      <apexchart :type="type" width="550" :options="chartOptions" :series="series"></apexchart>
+  <div class="chart-wrapper">
+    <div class="box left">
+      <h1>Lorem ipsum.</h1>
+      <h3>Fakta</h3>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam
+        sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione
+        repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos
+        saepe vitae.
+      </p>
+    </div>
+    <div class="box">
+      <select v-model="selected" @change="clicked">
+        <option disabled value="">Välj ett ämne</option>
+        <option>love</option>
+        <option>crime</option>
+        <option>dance</option>
+      </select>
+      <br /><br />
+      <div class="chart-wrapper">
+        <apexchart :type="type" width="700" :options="chartOptions" :series="series"></apexchart>
+      </div>
     </div>
   </div>
 </template>
@@ -22,10 +33,6 @@ export default {
   components: {
     apexchart: VueApexCharts,
   },
-  //   hur hämtar jag in från flera olika?
-  //   created() {
-  //     this.fetch();
-  //   },
 
   data() {
     return {
@@ -64,7 +71,7 @@ export default {
           //hitta något som gör att det inte laddar om alla, bara dem som du vill se.
           markers: {
             shape: "square",
-            onClick: function(seriesIndex) {
+            onClick: function (seriesIndex) {
               console.log(seriesIndex.data.activeSeriesIndex + "detta är series index")
               // this.series.splice(seriesIndex.data.activeSeriesIndex, 1)
             },
@@ -114,7 +121,6 @@ export default {
     },
 
     async fetch() {
-      //   this.arrayOfworkCount = 0;
       if (!this.arrayOfSubjects.includes(this.selected)) {
         this.workCount = await FetchService.workCountForSubject(this.selected)
         this.arrayOfSubjects.push(this.selected)
@@ -151,9 +157,13 @@ div.chart-wrapper {
   justify-content: center;
 }
 
-.border {
-  border: 3px solid black;
-  margin-left: 20%;
-  margin-right: 20%;
+.box {
+  /* border: 3px solid black; */
+  margin: 5%;
 }
+
+.left {
+  text-align: left;
+}
+
 </style>
