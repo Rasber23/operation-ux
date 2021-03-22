@@ -71,9 +71,7 @@ export default {
     },
     timeLeft(totalWeight) {
       const magicNumber= 180;
-
       const relation= magicNumber/totalWeight;
-
       const timeLeft= relation*30
       const minLeft= timeLeft.toFixed(0)
       const secleft= ((minLeft-timeLeft)*60).toFixed(0)
