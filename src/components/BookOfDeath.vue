@@ -3,11 +3,14 @@
     <div class="con">
       <div>
         <h1>Lorem ipsum.</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos saepe vitae.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat
+          quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod
+          ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus
+          praesentium, quos saepe vitae.</p>
       </div>
       <div>
         <select v-model="selected" @change="clicked">
-          <option  :value="selected">{{selected}}</option>
+          <option :value="selected">{{ selected }}</option>
           <option>Gustave Flaubert</option>
           <option>Leo Tolstoy</option>
           <option>William Shakespeare</option>
@@ -19,11 +22,19 @@
         </select><br>
       </div>
       <div v-show="first" id="result">
-      <img v-if="show" src="http://placekitten.com/400/400" alt="">
-      <img v-else src="http://placekitten.com/300/300" alt="">
+        <div id="surviveCon" v-if="show">
+          <img src="http://placekitten.com/400/400" alt="">
+          <p>Survive!</p>
+          <br>
+          <br>
+          <p v-show="showDeathTimer"> ...But would die after {{ minToSurvive }}min and {{ secToSurvive }}sec</p>
+        </div>
+        <div id="deathCon" v-else>
+          <img src="http://placekitten.com/300/300" alt="">
+          <p> He Dead</p>
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -32,12 +43,14 @@
 export default {
   name: "BookOfDeath",
 
-  data(){
-    return{
-
-      numberOfPublications:0,
+  data() {
+    return {
+      showDeathTimer: false,
+      minToSurvive: 0,
+      secToSurvive: 0,
+      numberOfPublications: 0,
       isAlive: true,
-      selected:"Pick a Athour",
+      selected: "Pick a Athour",
       show: true,
       first: false
     }
@@ -59,33 +72,32 @@ export default {
       const totalWeight = numberOfpublications * averageWeight
       console.log(totalWeight)
       if (totalWeight < 500) {
-        this.timeLeft(totalWeight)
         console.log("SURVIE!")
-        this.show=true
-        this.first=true
+        this.timeLeft(totalWeight)
+        this.show = true
+        this.first = true
       } else {
         console.log("verry Mutch dead")
-        this.show=false
-        this.first=true
+        this.show = false
+        this.first = true
       }
     },
     timeLeft(totalWeight) {
-      const magicNumber= 180;
-      const relation= magicNumber/totalWeight;
-      const timeLeft= relation*30
-      const minLeft= timeLeft.toFixed(0)
-      const secleft= ((minLeft-timeLeft)*60).toFixed(0)
-      console.log("minLeft: ",minLeft ,"SecLeft: ",secleft)
-
-      console.log("Would tie after ",timeLeft,"min")
-
-
-
-
-
-    //  });
-
-      //700 pounds 320 150
+      this.showDeathTimer = false
+      console.log(totalWeight)
+      if (totalWeight > 120) {
+        console.log(this.showDeathTimer)
+        this.showDeathTimer = true
+        const magicNumber = 180;
+        const relation = magicNumber / totalWeight;
+        const timeLeft = relation * 30
+        const minLeft = timeLeft.toFixed(0)
+        const secleft =Math.abs( ((minLeft - timeLeft) * 60)).toFixed(0)
+        this.minToSurvive = minLeft
+        this.secToSurvive =secleft
+        console.log("minLeft: ", minLeft, "SecLeft: ", Math.abs(secleft))
+        console.log("Would tie after ", timeLeft, "min")
+      }
 
     }
   }
@@ -93,10 +105,12 @@ export default {
 </script>
 
 <style scoped>
-h1{
-  color:black;
+#surviveCon {
+  display: flex;
+
 }
-p{
-  color:black;
+
+#deathCon {
+  display: flex;
 }
 </style>
