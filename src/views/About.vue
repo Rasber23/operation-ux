@@ -24,7 +24,7 @@
 
 <script>
 import AboutCard from "@/components/AboutCard"
-import UserService from "../services/UserService"
+import UserService from "../services/UserService.js"
 
 export default {
   name: "About",
