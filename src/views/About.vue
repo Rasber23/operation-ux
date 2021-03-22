@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="text">
+    <div class="aboutText">
       <h1>Om oss</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur maxime maiores error, quibusdam harum ad
@@ -10,22 +10,35 @@
       </p>
     </div>
     <div class="grid">
-      <about-card></about-card>
-      <about-card></about-card>
-      <about-card></about-card>
-      <about-card></about-card>
-      <about-card></about-card>
-      <about-card></about-card>
-      <about-card></about-card>
+      <about-card v-for="person in people" :key="person.name">
+        <template v-slot:name>
+          {{ person.name }}
+        </template>
+        <template v-slot:text>
+          {{ person.text }}
+        </template>
+      </about-card>
     </div>
   </div>
 </template>
 
 <script>
 import AboutCard from "@/components/AboutCard"
+import UserService from "../services/UserService"
+
 export default {
   name: "About",
   components: { AboutCard },
+
+  created() {
+    this.people = UserService.getUsers()
+  },
+
+  data() {
+    return {
+      people: [],
+    }
+  },
 }
 </script>
 
@@ -35,20 +48,11 @@ body {
   justify-content: center;
 }
 
-.text {
+.aboutText {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
   width: 45%;
-}
-
-.flexbox {
-  display: flex;
-  justify-content: space-evenly;
-  align-content: center;
-  /* margin-left: 10%;
-  margin-right: 10%; */
-  margin-top: 5%;
 }
 
 .grid {

@@ -5,8 +5,8 @@
     </div>
     <div class="text">
       <p>
-        <strong>Lorem, ipsum dolor.</strong><br>
-        Morbi condimentum vestibulum condimentum. Vivamus non felis lectus. 
+        <strong><slot name="name"></slot></strong><br />
+        <slot name="text"></slot>
       </p>
     </div>
   </div>
@@ -26,17 +26,13 @@ img {
 .image {
   display: flex;
   align-self: center;
+  margin-left: 1em;
 }
 
 .cardContainer {
-  background-color:#e1e1e1;
-  /* border: #2c3e50 solid 3px; */
-  /* margin-top: 3em; */
-  /* margin-left: 1em;
-  margin-right: 1em; */
-  /* width: 500px; */
+  background-color: #e1e1e1;
   border-radius: 30px;
-  padding: 3%;
+  padding: 1%;
 }
 
 .text {
@@ -49,13 +45,4 @@ img {
   justify-content: center;
   align-content: center;
 }
-
-/* .box {
-  background: #444;
-  border: 1px solid #555;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #AAA;
-} */
 </style>
