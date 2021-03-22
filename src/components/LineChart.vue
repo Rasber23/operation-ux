@@ -16,6 +16,11 @@
         <option>love</option>
         <option>crime</option>
         <option>dance</option>
+        <option>art</option>
+        <option>fantasy</option>
+        <option>poetry</option>
+        <option>kittens</option>
+        <option>programming</option>
       </select>
       <br /><br />
       <div class="chart-wrapper">
@@ -39,7 +44,7 @@ export default {
       type: "line",
       chartOptions: {
         chart: {
-          id: "vuechart-example",
+          id: "linechart",
           toolbar: { show: false },
         },
         xaxis: {
@@ -71,32 +76,32 @@ export default {
           //hitta något som gör att det inte laddar om alla, bara dem som du vill se.
           markers: {
             shape: "square",
-            onClick: function (seriesIndex) {
-              console.log(seriesIndex.data.activeSeriesIndex + "detta är series index")
-              // this.series.splice(seriesIndex.data.activeSeriesIndex, 1)
-            },
-          },
-          // onItemClick: {
-          //   toggleDataSeries: true,
-          // },
-          itemMargin: {
-            horizontal: 10,
-            vertical: 5,
+            // onClick: function(event, chartContext) {
+            //   this.removeFromChart(chartContext)
+            // },
           },
         },
-        // responsive: [
-        //   {
-        //     breakpoint: 610,
-        //     options: {
-        //       chart: {
-        //         width: "100%",
-        //         height: 300,
-        //         type: 'line'
-        //       },
-        //     },
-        //   },
-        // ],
+        // onItemClick: {
+        //   toggleDataSeries: true,
+        // },
+        itemMargin: {
+          horizontal: 10,
+          vertical: 5,
+        },
       },
+      // responsive: [
+      //   {
+      //     breakpoint: 610,
+      //     options: {
+      //       chart: {
+      //         width: "50%",
+      //         height: 180,
+      //         type: "line",
+      //       },
+      //     },
+      //   },
+      // ],
+      // },
       series: [
         {
           name: "Crime",
@@ -143,8 +148,11 @@ export default {
           data: this.arrayOfWorkCount[i],
         }
         this.series.push(this.test)
-        console.log(this.series)
       }
+    },
+
+    removeFromChart(index) {
+      console.log(this.series[index].name + " från nya metoden")
     },
   },
 }
@@ -165,5 +173,4 @@ div.chart-wrapper {
 .left {
   text-align: left;
 }
-
 </style>

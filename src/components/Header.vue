@@ -1,7 +1,7 @@
 <template>
   <div class="nav">
     <router-link to="/">
-      <img src="http://placekitten.com/100/20" alt="" />
+      <img src="http://placekitten.com/100/25" alt="" />
     </router-link>
 
     <div class="menuCon">
