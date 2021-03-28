@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <div class="aboutText">
       <h1>Om oss</h1>
       <p>
@@ -43,9 +43,14 @@ export default {
 </script>
 
 <style scoped>
-body {
-  display: flex;
-  justify-content: center;
+.container {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 16px;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 28px;
 }
 
 .aboutText {

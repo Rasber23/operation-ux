@@ -30,7 +30,7 @@ img {
 }
 
 .cardContainer {
-  background-color: #e1e1e1;
+  background-color: #bbb9b9;
   border-radius: 30px;
   padding: 1%;
 }
