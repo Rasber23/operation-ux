@@ -23,6 +23,7 @@
         <option>programming</option>
       </select>
       <br /><br />
+      <div v-if="!fetchReady" class="chart-wrapper layer">loading...</div>
       <div class="chart-wrapper">
         <apexchart :type="type" width="700" :options="chartOptions" :series="series"></apexchart>
       </div>
@@ -48,19 +49,7 @@ export default {
           toolbar: { show: false },
         },
         xaxis: {
-          categories: [
-            1920,
-            // 1930,
-            1940,
-            // 1950,
-            1960,
-            // 1970,
-            1980,
-            // 1990,
-            2000,
-            // 2010,
-            2020,
-          ],
+          categories: [1920, 1940, 1960, 1980, 2000, 2020],
         },
         stroke: {
           curve: "smooth",
@@ -71,19 +60,10 @@ export default {
           showForZeroSeries: false,
           position: "top",
           fontSize: "25px",
-          //nu gör den nånting onClick - lägga till kryssruta istället?
-          // hitta vilken serie den tillhör och ta bort den från listan
-          //hitta något som gör att det inte laddar om alla, bara dem som du vill se.
           markers: {
             shape: "square",
-            // onClick: function(event, chartContext) {
-            //   this.removeFromChart(chartContext)
-            // },
           },
         },
-        // onItemClick: {
-        //   toggleDataSeries: true,
-        // },
         itemMargin: {
           horizontal: 10,
           vertical: 5,
@@ -114,6 +94,7 @@ export default {
       arrayOfSubjects: [],
       arrayOfWorkCount: [],
       test: {},
+      fetchReady: true,
     }
   },
 
@@ -126,6 +107,7 @@ export default {
     },
 
     async fetch() {
+      this.fetchReady = false
       if (!this.arrayOfSubjects.includes(this.selected)) {
         this.workCount = await FetchService.workCountForSubject(this.selected)
         this.arrayOfSubjects.push(this.selected)
@@ -135,8 +117,10 @@ export default {
         console.log(this.arrayOfSubjects)
         console.log(this.arrayOfSubjects.length)
         this.updateChart()
+        this.fetchReady = true
       } else {
         console.log("nothing was done")
+        this.fetchReady = true
       }
     },
 
@@ -166,11 +150,18 @@ div.chart-wrapper {
 }
 
 .box {
-  /* border: 3px solid black; */
   margin: 5%;
 }
 
 .left {
   text-align: left;
+}
+
+.layer {
+  background-color: rgba(255, 255, 255, 0.781);
+  position: absolute;
+  z-index: 1;
+  width: 700px;
+  height: 450px;
 }
 </style>
