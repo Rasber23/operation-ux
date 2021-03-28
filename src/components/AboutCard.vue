@@ -1,7 +1,7 @@
 <template>
   <div class="cardContainer centered">
     <div class="image">
-      <img src="http://placekitten.com/100/100" alt="" />
+      <slot name="photo"></slot>
     </div>
     <div class="text">
       <p>
@@ -27,6 +27,8 @@ img {
   display: flex;
   align-self: center;
   margin-left: 1em;
+  height: 100px;
+  width: 100px;
 }
 
 .cardContainer {

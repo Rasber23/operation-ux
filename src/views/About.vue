@@ -11,8 +11,11 @@
     </div>
     <div class="grid">
       <about-card v-for="person in people" :key="person.name">
+        <template v-slot:photo>
+          <img :src="person.image" />
+        </template>
         <template v-slot:name>
-          {{ person.name }}
+          {{ person.name + ", " + person.role }}
         </template>
         <template v-slot:text>
           {{ person.text }}
@@ -24,7 +27,7 @@
 
 <script>
 import AboutCard from "@/components/AboutCard"
-import UserService from "../services/UserService.js"
+import UserService from "@/services/UserService.js"
 
 export default {
   name: "About",
@@ -44,19 +47,19 @@ export default {
 
 <style scoped>
 .container {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
 }
 
 h1 {
-  font-family: 'Playfair Display', serif;
+  font-family: "Playfair Display", serif;
   font-size: 28px;
 }
 
 .aboutText {
   margin-left: 10%;
   margin-right: 10%;
-  margin-top: 5%;
+  margin-top: 7%;
   width: 45%;
 }
 
