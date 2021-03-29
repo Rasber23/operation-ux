@@ -5,8 +5,7 @@
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur maxime maiores error, quibusdam harum ad
         nostrum dolor sint tenetur atque nobis ipsa excepturi praesentium, reprehenderit explicabo dignissimos
-        recusandae. Ratione praesentium reiciendis labore eaque eveniet officiis hic laudantium sit ipsam quod provident
-        aliquid ad, quam incidunt quaerat id? Sint, numquam accusamus.
+        recusandae.
       </p>
     </div>
     <div class="grid">
@@ -22,6 +21,7 @@
         </template>
       </about-card>
     </div>
+    <div class="footer"></div>
   </div>
 </template>
 
@@ -46,9 +46,11 @@ export default {
 </script>
 
 <style scoped>
+/* ---------------------------------- för desktopview ----------------------------------*/
 .container {
   font-family: "Source Sans Pro", sans-serif;
   font-size: 16px;
+  height: 1000px;
 }
 
 h1 {
@@ -71,5 +73,30 @@ h1 {
   margin-left: 10%;
   margin-right: 10%;
   margin-top: 5%;
+}
+
+/*---------------------------------- för mobileview ----------------------------------*/
+@media screen and (max-width: 576px) {
+  .container {
+    font-size: 18px;
+  }
+
+  .aboutText {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin-top: 5%;
+    width: 84%;
+  }
+
+  .grid {
+    row-gap: 1.5%;
+    grid-template-columns: 1fr;
+    /* top | right | bottom | left */
+    margin: 4% 4% 0 4%;
+  }
+
+  .footer {
+    height: 100px;
+  }
 }
 </style>
