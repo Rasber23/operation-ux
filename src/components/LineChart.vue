@@ -1,15 +1,13 @@
 <template>
   <div class="chart-wrapper">
-    <div class="box left">
-      <h1>Lorem ipsum.</h1>
-      <h3>Fakta</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam
+    <Facts>
+      <template v-slot:heading>LineChart</template>
+      <template v-slot:subheading>Subheading for LineChart</template>
+      <template v-slot:text>LineChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam
         sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione
         repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos
-        saepe vitae.
-      </p>
-    </div>
+        saepe vitae.</template>
+    </Facts>
     <div class="box">
       <select v-model="selected" @change="clicked">
         <option disabled value="">Välj ett ämne</option>
@@ -34,10 +32,12 @@
 <script>
 import VueApexCharts from "vue3-apexcharts"
 import FetchService from "../services/FetchService"
+import Facts from "./Facts.vue"
 
 export default {
   components: {
     apexchart: VueApexCharts,
+    Facts: Facts,
   },
 
   data() {

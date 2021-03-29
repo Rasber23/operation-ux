@@ -1,10 +1,14 @@
 <template>
   <div class="bigCon">
     <div class="con">
-      <div>
-    <h1>Lorem ipsum.</h1>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos saepe vitae.</p>
-      </div>
+      <Facts>
+        <template v-slot:heading>BarChart</template>
+        <template v-slot:subheading>Subheading for BarChart</template>
+        <template v-slot:text>BarChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam
+        sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione
+        repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos
+        saepe vitae.</template>
+      </Facts>
       <div>
         <select v-model="selected" @change="clicked">
         <option  :value="selected">{{selected}}</option>
@@ -26,10 +30,12 @@
 
 <script>
 import VueApexCharts from "vue3-apexcharts"
+import Facts from './Facts.vue'
 
 export default {
   components: {
     apexchart: VueApexCharts,
+    Facts: Facts
   },
 
   data() {
