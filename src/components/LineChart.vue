@@ -3,22 +3,19 @@
     <Facts>
       <template v-slot:heading>LineChart</template>
       <template v-slot:subheading>Subheading for LineChart</template>
-      <template v-slot:text>LineChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam
-        sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione
-        repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos
-        saepe vitae.</template>
+      <template v-slot:text
+        >LineChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat
+        quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod
+        ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium,
+        quos saepe vitae.</template
+      >
     </Facts>
     <div class="box">
       <select v-model="selected" @change="clicked">
         <option disabled value="">Välj ett ämne</option>
-        <option>love</option>
-        <option>crime</option>
-        <option>dance</option>
-        <option>art</option>
-        <option>fantasy</option>
-        <option>poetry</option>
-        <option>kittens</option>
-        <option>programming</option>
+        <option v-for="option in options" :value="option.value" :key="option.index">
+          {{ option.text }}
+        </option>
       </select>
       <br /><br />
       <div v-if="!fetchReady" class="chart-wrapper layer">loading...</div>
@@ -88,7 +85,16 @@ export default {
           data: [1, 2, 3, 4, 5, 6],
         },
       ],
-
+      options: [
+        { text: "Love", value: "love" },
+        { text: "Crime", value: "crime" },
+        { text: "Dance", value: "dance" },
+        { text: "Art", value: "art" },
+        { text: "Fantasy", value: "fantasy" },
+        { text: "Poetry", value: "poetry" },
+        { text: "Kittens", value: "kittens" },
+        { text: "Programming", value: "programming" },
+      ],
       selected: "",
       workCount: [],
       arrayOfSubjects: [],
