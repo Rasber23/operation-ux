@@ -1,8 +1,7 @@
 <template>
   <div class="chart-wrapper">
     <Facts>
-      <template v-slot:heading>LineChart</template>
-      <template v-slot:subheading>Subheading for LineChart</template>
+      <template v-slot:heading>Hur har olika genrers populäritet förändrats genom åren?</template>
       <template v-slot:text
         >LineChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat
         quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod
