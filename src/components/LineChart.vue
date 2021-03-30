@@ -50,7 +50,7 @@ export default {
         stroke: {
           curve: "smooth",
         },
-        colors: ["#ffd384", "#ffab73", "#ffaec0"],
+        colors: ['#CC79A7','#0072B2','#009E73','#E69F00','#D55E00'],
         legend: {
           showForNullSeries: false,
           showForZeroSeries: false,

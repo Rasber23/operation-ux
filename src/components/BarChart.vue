@@ -48,7 +48,9 @@ export default {
         },
       ],
       chartOptions: {
+        colors:['#CC79A7','#0072B2','#009E73','#E69F00','#D55E00'],
         chart: {
+
           toolbar:{
             show:false
           },
@@ -57,6 +59,7 @@ export default {
         },
         plotOptions: {
           bar: {
+            distributed: true,
             borderRadius: 4,
             horizontal: true,
             dataLabels: {
@@ -73,6 +76,7 @@ export default {
         },
         xaxis: {
           categories: [],
+
         },
       },
     }
