@@ -3,10 +3,12 @@
     <div class="con">
       <Facts>
         <template v-slot:heading>Kan en författare överleva vikten av sina böcker?</template>
-        <template v-slot:text>BookOfDeath ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam
-        sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione
-        repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos
-        saepe vitae.</template>
+        <template v-slot:text
+          >BookOfDeath ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
+          quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi
+          quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus
+          praesentium, quos saepe vitae.</template
+        >
       </Facts>
       <div>
         <select v-model="selected" @change="clicked">
@@ -18,12 +20,12 @@
           <option>Fyodor Dostoevsky</option>
           <option>William Faulkner</option>
           <option>Charles Dickens</option>
-          <option>Anton Checkhov</option></select
-        ><br />
+          <option>Anton Checkhov</option>
+          </select><br/>
       </div>
-      <div v-show="first" id="result">
+      <div v-show="first" id='result'>
         <div id="surviveCon" v-if="show">
-          <img src="http://placekitten.com/400/400" alt="" />
+          <img src='http://placekitten.com/400/400' alt="" />
           <p>Survive!</p>
           <br />
           <br />
