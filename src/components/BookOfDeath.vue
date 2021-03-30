@@ -1,39 +1,43 @@
 <template>
-  <div class="bigCon">
-    <div class="con">
-      <Facts>
-        <template v-slot:heading>Kan en författare överleva vikten av sina böcker?</template>
-        <template v-slot:text
-          >BookOfDeath ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
-          quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi
-          quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus
-          praesentium, quos saepe vitae.</template
-        >
-      </Facts>
-      <div>
-        <select v-model="selected" @change="clicked">
-          <option :value="selected">{{ selected }}</option>
-          <option>Gustave Flaubert</option>
-          <option>Leo Tolstoy</option>
-          <option>William Shakespeare</option>
-          <option>James Joyce</option>
-          <option>Fyodor Dostoevsky</option>
-          <option>William Faulkner</option>
-          <option>Charles Dickens</option>
-          <option>Anton Checkhov</option>
-          </select><br/>
-      </div>
-      <div v-show="first" id='result'>
-        <div id="surviveCon" v-if="show">
-          <img src='http://placekitten.com/400/400' alt="" />
-          <p>Survive!</p>
-          <br />
-          <br />
-          <p v-show="showDeathTimer">...But would die after {{ minToSurvive }}min and {{ secToSurvive }}sec</p>
+  <div class="col-10">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <Facts>
+            <template v-slot:heading>Kan en författare överleva vikten av sina böcker?</template>
+            <template v-slot:text
+              >BookOfDeath ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
+              quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
+              quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis
+              possimus praesentium, quos saepe vitae.</template
+            >
+          </Facts>
         </div>
-        <div id="deathCon" v-else>
-          <img src="http://placekitten.com/300/300" alt="" />
-          <p>He Dead</p>
+        <div class="col">
+          <select v-model="selected" @change="clicked">
+            <option :value="selected">{{ selected }}</option>
+            <option>Gustave Flaubert</option>
+            <option>Leo Tolstoy</option>
+            <option>William Shakespeare</option>
+            <option>James Joyce</option>
+            <option>Fyodor Dostoevsky</option>
+            <option>William Faulkner</option>
+            <option>Charles Dickens</option>
+            <option>Anton Checkhov</option></select
+          ><br />
+          <div v-show="first" id="result">
+            <div id="surviveCon" v-if="show">
+              <img src="http://placekitten.com/400/400" alt="" />
+              <p>Survive!</p>
+              <br />
+              <br />
+              <p v-show="showDeathTimer">...But would die after {{ minToSurvive }}min and {{ secToSurvive }}sec</p>
+            </div>
+            <div id="deathCon" v-else>
+              <img src="http://placekitten.com/300/300" alt="" />
+              <p>He Dead</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -111,11 +115,4 @@ export default {
 </script>
 
 <style scoped>
-#surviveCon {
-  display: flex;
-}
-
-#deathCon {
-  display: flex;
-}
 </style>

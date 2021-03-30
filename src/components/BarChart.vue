@@ -1,40 +1,45 @@
 <template>
-  <div class="bigCon">
-    <div class="con">
-      <Facts>
-        <template v-slot:heading>Vilken genre var mest publicerad år X?</template>
-        <template v-slot:text>BarChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat quam
-        sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod ratione
-        repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium, quos
-        saepe vitae.</template>
-      </Facts>
-      <div>
-        <select v-model="selected" @change="clicked">
-        <option  :value="selected">{{selected}}</option>
-        <option>2020</option>
-        <option>2010</option>
-        <option>2000</option>
-        <option>1990</option>
-        <option>1980</option>
-        <option>1970</option>
-        <option>1960</option>
-        <option>1500</option>
-      </select><br>
-      <apexchart width="550" :options="chartOptions" :series="series"></apexchart>
+  <div class="col-10">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <Facts>
+            <template v-slot:heading>Vilken genre var mest publicerad år X?</template>
+            <template v-slot:text
+              >BarChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
+              quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
+              quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis
+              possimus praesentium, quos saepe vitae.</template
+            >
+          </Facts>
+        </div>
+        <div class="col">
+          <select v-model="selected" @change="clicked">
+            <option :value="selected">{{ selected }}</option>
+            <option>2020</option>
+            <option>2010</option>
+            <option>2000</option>
+            <option>1990</option>
+            <option>1980</option>
+            <option>1970</option>
+            <option>1960</option>
+            <option>1500</option></select
+          ><br />
+          <apexchart width="550" :options="chartOptions" :series="series"></apexchart>
+        </div>
       </div>
     </div>
-
   </div>
 </template>
 
 <script>
 import VueApexCharts from "vue3-apexcharts"
-import Facts from './Facts.vue'
+import Facts from "./Facts.vue"
 
 export default {
   components: {
     apexchart: VueApexCharts,
-    Facts: Facts
+    Facts: Facts,
   },
 
   data() {
@@ -48,11 +53,10 @@ export default {
         },
       ],
       chartOptions: {
-        colors:['#CC79A7','#0072B2','#009E73','#E69F00','#D55E00'],
+        colors: ["#CC79A7", "#0072B2", "#009E73", "#E69F00", "#D55E00"],
         chart: {
-
-          toolbar:{
-            show:false
+          toolbar: {
+            show: false,
           },
           type: "bar",
           height: 350,
@@ -76,7 +80,6 @@ export default {
         },
         xaxis: {
           categories: [],
-
         },
       },
     }
@@ -105,31 +108,27 @@ export default {
       console.log(await apiData.work_count)
       this.listOfdata.push(apiData.work_count)
       this.listOfSubjects.push(apiData.name)
-      console.log("data",this.series[0].data)
+      console.log("data", this.series[0].data)
     },
 
     updateChart() {
-
       this.series = [
         {
           data: this.listOfdata,
         },
       ]
 
-      this.chartOptions.xaxis.categories.length = 0;
-      this.listOfSubjects.length=5
-      console.log("kattiGORIER",this.chartOptions.xaxis.categories.length)
+      this.chartOptions.xaxis.categories.length = 0
+      this.listOfSubjects.length = 5
+      console.log("kattiGORIER", this.chartOptions.xaxis.categories.length)
 
       this.chartOptions.xaxis.categories.push(...this.listOfSubjects)
-      console.log("efter",this.chartOptions.xaxis.categories.length)
-
-
+      console.log("efter", this.chartOptions.xaxis.categories.length)
     },
-    async clicked(){
-
+    async clicked() {
       const ListOfSubjects = ["dance", "film", "painting", "design", "music"]
       const promises = []
-      this.listOfdata.length=[]
+      this.listOfdata.length = []
       for (const subject of ListOfSubjects) {
         promises.push(this.loadApi(subject))
       }
@@ -139,24 +138,23 @@ export default {
       }
 
       this.updateChart()
-    }
+    },
   },
 }
 </script>
 <style scoped>
-p{
+p {
   color: black;
 }
-h1{
-  color:black;
+h1 {
+  color: black;
 }
-.con{
+.con {
   display: flex;
   flex-direction: row;
 }
 
-.bigCon{
+.bigCon {
   padding-top: 10em;
-
 }
 </style>

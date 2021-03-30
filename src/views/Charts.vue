@@ -1,10 +1,10 @@
 <template>
-  <div>
+<div class="container-fluid">
+    <div class="row">
     <chart-menu></chart-menu>
-    <div class="split right">
       <router-view></router-view>
     </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -15,17 +15,5 @@ export default {
 }
 </script>
 <style scoped>
-.split {
-  height: 100%;
-  width: 15%;
-  position: fixed;
-  padding-top: 20px;
-}
-.right {
-  right: 0;
-  background-color: #ffffff;
-  width: 85%;
-  height: 100%;
-  overflow-x: hidden;
-}
+
 </style>

@@ -1,25 +1,31 @@
 <template>
-  <div class="chart-wrapper">
-    <Facts>
-      <template v-slot:heading>Hur har olika genrers populäritet förändrats genom åren?</template>
-      <template v-slot:text
-        >LineChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque quaerat
-        quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio quasi quod
-        ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis possimus praesentium,
-        quos saepe vitae.</template
-      >
-    </Facts>
-    <div class="box">
-      <select v-model="selected" @change="clicked">
-        <option disabled value="">Välj ett ämne</option>
-        <option v-for="option in options" :value="option.value" :key="option.index">
-          {{ option.text }}
-        </option>
-      </select>
-      <br /><br />
-      <div v-if="!fetchReady" class="chart-wrapper layer">loading...</div>
-      <div class="chart-wrapper">
-        <apexchart :type="type" width="700" :options="chartOptions" :series="series"></apexchart>
+  <div class="col-10">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <Facts>
+            <template v-slot:heading>Hur har olika genrers populäritet förändrats genom åren?</template>
+            <template v-slot:text
+              >LineChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
+              quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
+              quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis
+              possimus praesentium, quos saepe vitae.</template
+            >
+          </Facts>
+          </div>
+          <div class="col">
+            <select v-model="selected" @change="clicked">
+              <option disabled value="">Välj ett ämne</option>
+              <option v-for="option in options" :value="option.value" :key="option.index">
+                {{ option.text }}
+              </option>
+            </select>
+            <br /><br />
+            <div v-if="!fetchReady" class="chart-wrapper layer">loading...</div>
+            <div class="chart-wrapper">
+              <apexchart :type="type" width="550" :options="chartOptions" :series="series"></apexchart>
+            </div>
+          </div>
       </div>
     </div>
   </div>
@@ -50,7 +56,7 @@ export default {
         stroke: {
           curve: "smooth",
         },
-        colors: ['#CC79A7','#0072B2','#009E73','#E69F00','#D55E00'],
+        colors: ["#CC79A7", "#0072B2", "#009E73", "#E69F00", "#D55E00"],
         legend: {
           showForNullSeries: false,
           showForZeroSeries: false,

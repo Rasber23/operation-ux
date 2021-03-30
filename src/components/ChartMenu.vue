@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar col d-none d-md-block">
     <ul class="navbar-nav">
       <li class="nav-item">
         <router-link class="nav-link" to="/charts/linechart">
@@ -26,7 +26,7 @@
               ></path>
             </g>
           </svg>
-        <span class="link-text">Linechart</span>
+        <span>Linechart</span>
         </router-link>
       </li>
       <li class="nav-item">
@@ -54,7 +54,7 @@
               ></path>
             </g>
           </svg>
-        <span class="link-text">Barchart</span>
+        <span>Barchart</span>
         </router-link>
       </li>
       <li class="nav-item">
@@ -82,7 +82,7 @@
               ></path>
             </g>
           </svg>
-        <span class="link-text">Book of Death</span>
+        <span>Book of Death</span>
         </router-link>
       </li>
     </ul>
@@ -103,7 +103,6 @@ export default {
 
 <style scoped>
 .navbar {
-  position: fixed;
   background-color: #591716;
   height: 90%;
   margin-top: 1rem;
@@ -124,7 +123,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: 85vh;
 }
 
 .nav-item {
