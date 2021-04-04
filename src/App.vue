@@ -16,7 +16,7 @@ export default {
 
 <style>
 body {
-  background-color: var(white);
+  background-color: #fffaf0;
 }
 
 html {
