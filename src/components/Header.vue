@@ -5,7 +5,7 @@
     </router-link>
 
     <div class="menuCon">
-      <input class="btn btn-primary" type="button" value="charts" @click="navigate" />
+      <input class="btn btn-primary" type="button" value="charts/linechart" @click="navigate" />
       <input class="navButton" type="button" value="about" @click="navigate" />
     </div>
   </div>

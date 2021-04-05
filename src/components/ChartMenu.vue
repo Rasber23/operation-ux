@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar col d-none d-md-block">
+  <nav class="navbar col d-none d-lg-block">
     <ul class="navbar-nav">
       <li class="nav-item">
         <router-link class="nav-link" to="/charts/linechart">
@@ -103,12 +103,13 @@ export default {
 
 <style scoped>
 .navbar {
-  background-color: #591716;
+  background-color: var(--secondary);
   height: 90%;
   margin-top: 1rem;
   margin-bottom: 1rem;
   border-radius: 1rem 1rem;
   overflow: hidden;
+  padding: 0;
 
   /*
   skall inte vara här skall fixas med grid eller flexbox.
@@ -140,7 +141,7 @@ export default {
 
 .nav-link:hover {
   filter: grayscale(0%) opacity(1);
-  background: #6F1D1B;
+  background: var(--primary);
   color: #BBB9B9;
 }
 
@@ -152,38 +153,6 @@ export default {
   width: 2rem;
   min-width: 2rem;
   margin: 0 1.5rem;
-}
-
-.split {
-  background-color: #591716;
-  margin: 0;
-  height: 100%;
-  width: 15%;
-  position: fixed;
-  /* overflow-x: hidden; */
-
-}
-
-.left {
-  left: 0;
-  padding-right: 50px;
-}
-
-.big-btn {
-  height: 100px;
-  width: 100%;
-  background-color: #ffffff;
-  transition-duration: 0.4s;
-
-}
-
-.big-btn:hover {
-  background-color: #e1e1e1;
-  /* color: white; */
-}
-
-button:focus {
-  outline: none;
 }
 
 </style>
