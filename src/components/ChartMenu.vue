@@ -1,8 +1,8 @@
 <template>
-  <nav class="navbar col-2 d-none d-lg-block">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <router-link class="nav-link" to="/charts/linechart">
+  <nav class="chartbar col-2 d-none d-lg-block">
+    <ul class="chartbar-nav">
+      <li class="chart-item">
+        <router-link class="chart-link" to="/charts/linechart">
         <svg
             aria-hidden="true"
             focusable="false"
@@ -26,11 +26,11 @@
               ></path>
             </g>
           </svg>
-        <span>Linechart</span>
+        <span>Publicerade verk inom genre per år</span>
         </router-link>
       </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/charts/barchart">
+      <li class="chart-item">
+        <router-link class="chart-link" to="/charts/barchart">
         <svg
             aria-hidden="true"
             focusable="false"
@@ -54,11 +54,11 @@
               ></path>
             </g>
           </svg>
-        <span>Barchart</span>
+        <span>Genres popularitet genom åren</span>
         </router-link>
       </li>
-      <li class="nav-item">
-        <router-link class="nav-link" to="/charts/bookofdeath">
+      <li class="chart-item">
+        <router-link class="chart-link" to="/charts/bookofdeath">
         <svg
             aria-hidden="true"
             focusable="false"
@@ -82,7 +82,7 @@
               ></path>
             </g>
           </svg>
-        <span>Book of Death</span>
+        <span>Kan författaren överleva vikten av sina böcker</span>
         </router-link>
       </li>
     </ul>
@@ -102,7 +102,7 @@ export default {
 
 
 <style scoped>
-.navbar {
+.chartbar {
   background-color: var(--secondary);
   height: 90%;
   margin-top: 1rem;
@@ -110,14 +110,9 @@ export default {
   border-radius: 1rem 1rem;
   overflow: hidden;
   padding: 0;
-
-  /*
-  skall inte vara här skall fixas med grid eller flexbox.
-  */
-  width: 15%;
 }
 
-.navbar-nav {
+.chartbar-nav {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -127,11 +122,11 @@ export default {
   height: 85vh;
 }
 
-.nav-item {
+.chart-item {
   width: 100%;
 }
 
-.nav-link {
+.chart-link {
   display: flex;
   align-items: center;
   height: 5rem;
@@ -139,7 +134,7 @@ export default {
   text-decoration: none;
 }
 
-.nav-link:hover {
+.chart-link:hover {
   filter: grayscale(0%) opacity(1);
   background: var(--primary);
   color: #BBB9B9;
@@ -149,7 +144,7 @@ export default {
   margin-left: 1rem;
 }
 
-.nav-link svg {
+.chart-link svg {
   width: 2rem;
   min-width: 2rem;
   margin: 0 1.5rem;
