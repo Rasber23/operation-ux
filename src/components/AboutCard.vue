@@ -1,13 +1,19 @@
 <template>
-  <div class="cardContainer centered">
-    <div class="image">
-      <slot name="photo"></slot>
-    </div>
-    <div class="text">
-      <p>
-        <strong><slot name="name"></slot></strong><br />
-        <slot name="text"></slot>
-      </p>
+  <div class="col">
+    <div class="card border-0 bg-color text-start text-dark" style="max-width: 540px">
+      <div class="row g-0 align-items-center">
+        <div class="d-flex justify-content-center image">
+          <slot name="photo"></slot>
+        </div>
+        <div class="col">
+          <div class="card-body">
+            <p class="card-text">
+              <strong><slot name="name"></slot></strong><br />
+              <slot name="text"></slot>
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -19,32 +25,14 @@ export default {
 </script>
 
 <style scoped>
-img {
-  border-radius: 50%;
+.bg-color {
+  background-color: #bbb9b9;
+  border-radius: 30px;
 }
 
 .image {
-  display: flex;
-  align-self: center;
   margin-left: 1em;
-  height: 100px;
-  width: 100px;
-}
-
-.cardContainer {
-  background-color: #bbb9b9;
-  border-radius: 30px;
-  padding: 1%;
-}
-
-.text {
-  margin-left: 7%;
-  text-align: left;
-}
-
-.centered {
-  display: flex;
-  justify-content: center;
-  align-content: center;
+  height: 80px;
+  width: 80px;
 }
 </style>

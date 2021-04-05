@@ -1,9 +1,9 @@
 @use '~bootstrap/scss/bootstrap' with (
     $primary: #6F1D1B,
     $secondary: #591716,
-    $black: #333333,
-    $white: #FFFAF0,
-    $gray-600: #BBB9B9,
+    $success: #333333,
+    $info: #FFFAF0,
+    $warning: #BBB9B9,
 
     $pink: #CC79A7,
     $blue: #0072B2,
@@ -11,3 +11,9 @@
     $yellow: #E69F00,
     $orange: #D55E00,
 );
+
+:root {
+    --primary: #6F1D1B;
+    --secondary: #591716;
+    --white: #FFFAF0;
+  }
