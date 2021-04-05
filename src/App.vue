@@ -7,6 +7,7 @@
         <component :is="Component" :test='transitionName' />
       </transition>
     </router-view>
+    <Footer></Footer>
   </div>
 </template>
 
@@ -18,6 +19,7 @@ export default {
   name: "App",
   components: {
     Header,
+    Footer
   },
   beforeRouteUpdate: {
     beforeRouteUpdate() {
