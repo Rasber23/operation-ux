@@ -30,17 +30,31 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </div>
-          <div v-show="first" id="result">
+          <div v-show="first" id="result" class="d-flex align-items-center justify-content-center">
             <div id="surviveCon" v-if="show">
               <img src="./../assets/överlever.png" alt="" />
-              <p>Survive!</p>
+              <br>
+              <br>
+              <h4>
+                <strong>The author survived!</strong>
+              </h4>
+              <p v-show="showDeathTimer">...but would die after {{ minToSurvive }}min and {{ secToSurvive }} sec under the weight.</p>
+              <p> {{ selected }} has published {{ numberOfPublications }} books.</p>
               <br />
+              <!-- <p>Survive!</p>
               <br />
-              <p v-show="showDeathTimer">...But would die after {{ minToSurvive }}min and {{ secToSurvive }}sec</p>
+              <br /> -->
+              <!-- <p v-show="showDeathTimer">...But would die after {{ minToSurvive }}min and {{ secToSurvive }}sec</p> -->
             </div>
             <div id="deathCon" v-else>
               <img src="./../assets/krossad.png" alt="" />
-              <p>He Dead</p>
+              <br>
+              <br>
+              <h5>
+                <strong>The author did not survive the weight of the books!</strong>
+              </h5>
+              <p> {{ selected }} has published {{ numberOfPublications }} books.</p>
+              <!-- <p>He Dead</p> -->
             </div>
           </div>
         </div>
@@ -87,6 +101,7 @@ export default {
     },
     calculateDeath(numberOfpublications) {
       console.log(numberOfpublications)
+      this.numberOfPublications = numberOfpublications
       const averageWeight = 0.7
       const totalWeight = numberOfpublications * averageWeight
       console.log(totalWeight)
@@ -131,10 +146,10 @@ export default {
 }
 
 .layer {
-  background-color: #fffaf0e5;
+  background-color: #fffaf0;
   position: absolute;
   z-index: 1;
-  width: 550px;
-  height: 550px;
+  width: 600px;
+  height: 600px;
 }
 </style>
