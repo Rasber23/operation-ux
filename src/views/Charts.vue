@@ -2,16 +2,16 @@
 <div class="container-fluid">
     <div class="row">
     <chart-menu></chart-menu>
-<<<<<<< HEAD
+
       <router-view></router-view>
-=======
+
     <div class="split right" @click="checkName">
       <router-view v-slot="{ Component }">
         <transition :name="test" >
           <component :is="Component" />
         </transition>
       </router-view>
->>>>>>> operation-slider
+    </div>
     </div>
     </div>
 </template>
@@ -37,9 +37,7 @@ methods:{
 }
 </script>
 <style scoped>
-<<<<<<< HEAD
 
-=======
 .split {
   height: 100%;
   width: 15%;
@@ -119,5 +117,5 @@ Route transitions ____up___
   position: absolute;
   right: 0;
 }
->>>>>>> operation-slider
+
 </style>

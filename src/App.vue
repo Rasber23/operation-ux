@@ -12,17 +12,27 @@
 
 <script>
 import Header from "@/components/Header"
-import Footer from "@/components/Footer"
+//import Footer from "@/components/Footer"
 
 export default {
   name: "App",
   components: {
     Header,
-  },
-  beforeRouteUpdate: {
-    beforeRouteUpdate() {
-      this.transitionName = this.transHolder;
+  }, data() {
+
+    return {
+      startX: 0,
+      endX: 0,
+      startY: 0,
+      endY: 0,
+      ticker: 1,
+      mapOfRouts: ["/charts/linechart", "/charts/barchart", "/charts/bookofdeath", "/", "/about"],
+      touchTolerance: 150,
+      transitionName: "fru",
+      transHolder:"",
+
     }
+
   },
   methods: {
     touchGateY() {
