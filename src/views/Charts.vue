@@ -3,9 +3,9 @@
     <div class="row">
     <chart-menu></chart-menu>
 
-      <router-view></router-view>
+      
 
-    <div class="split right" @click="checkName">
+    <div class="col" @click="checkName">
       <router-view v-slot="{ Component }">
         <transition :name="test" >
           <component :is="Component" />
@@ -37,21 +37,6 @@ methods:{
 }
 </script>
 <style scoped>
-
-.split {
-  height: 100%;
-  width: 15%;
-  position: fixed;
-  padding-top: 20px;
-}
-
-.right {
-  right: 0;
-  background-color: #ffffff;
-  width: 85%;
-  height: 100%;
-  overflow-x: hidden;
-}
 
 /*
 Route transitions ____up___
