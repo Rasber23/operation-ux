@@ -30,31 +30,28 @@
               <span class="visually-hidden">Loading...</span>
             </div>
           </div>
-          <div v-show="first" id="result" class="d-flex align-items-center justify-content-center">
+          <div v-show="first" id="result">
             <div id="surviveCon" v-if="show">
               <img src="./../assets/överlever.png" alt="" />
-              <br>
-              <br>
+              <br />
+              <br />
               <h4>
                 <strong>The author survived!</strong>
               </h4>
-              <p v-show="showDeathTimer">...but would die after {{ minToSurvive }}min and {{ secToSurvive }} sec under the weight.</p>
-              <p> {{ selected }} has published {{ numberOfPublications }} books.</p>
+              <p v-show="showDeathTimer">
+                ...but would die after {{ minToSurvive }}min and {{ secToSurvive }} sec under the weight.
+              </p>
+              <p>{{ selected }} has published {{ numberOfPublications }} books.</p>
               <br />
-              <!-- <p>Survive!</p>
-              <br />
-              <br /> -->
-              <!-- <p v-show="showDeathTimer">...But would die after {{ minToSurvive }}min and {{ secToSurvive }}sec</p> -->
             </div>
             <div id="deathCon" v-else>
               <img src="./../assets/krossad.png" alt="" />
-              <br>
-              <br>
+              <br />
+              <br />
               <h5>
                 <strong>The author did not survive the weight of the books!</strong>
               </h5>
-              <p> {{ selected }} has published {{ numberOfPublications }} books.</p>
-              <!-- <p>He Dead</p> -->
+              <p>{{ selected }} has published {{ numberOfPublications }} books.</p>
             </div>
           </div>
         </div>
