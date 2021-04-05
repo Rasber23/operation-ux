@@ -89,6 +89,21 @@ export default {
         xaxis: {
           categories: [],
         },
+        responsive: [
+          {
+            breakpoint: 576,
+            options: {
+              chart: {
+                width: 300,
+              },
+              plotOptions: {
+                bar: {
+                  horizontal: false,
+                },
+              },
+            },
+          },
+        ],
       },
       fetchReady: true,
     }
@@ -102,7 +117,7 @@ export default {
     }
 
     for (const p of promises) {
-      this.fetchReady = false;
+      this.fetchReady = false
       await p
     }
 
