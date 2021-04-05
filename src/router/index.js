@@ -16,8 +16,8 @@ const routes = [
         name: "charts",
         component: Charts,
         children: [
-            {path: "linechart", component: LineChart},
-            {path: "barchart",component: BarChart},
+            {path: "linechart", component: LineChart },
+            {path: "barchart",component: BarChart },
             {path: "bookofdeath",component: BookOfDeath}
         ]
     },
