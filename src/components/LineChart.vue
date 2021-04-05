@@ -40,7 +40,8 @@
               v-for="component in components"
               :key="component.index"
               :is="component.component"
-              :style="component.border">
+              :style="component.border"
+            >
               {{ component.name }}
             </component>
           </div>
@@ -123,11 +124,13 @@ export default {
         { text: "Programming", value: "programming" },
       ],
       selected: "",
-      fetchedWorks: [],
-      // refactor: en array med object i; subjects: och workcounts: ?
+      fetchedData: [],
+      fetchedObject: {
+        name: "",
+        data: [],
+      },
+      arrayOfFetchedObjects: [],
       arrayOfSubjects: [],
-      arrayOfWorkCount: [],
-      test: {},
       fetchReady: true,
       component: {
         name: "",
@@ -145,53 +148,59 @@ export default {
   },
 
   methods: {
-    // onödig att ha kanske? direkt till fetch?
     clicked(event) {
       this.selected = event.target.value
       this.fetch()
-    },
-
-    addButton() {
-      // if (this.components.length < 5) {
-      // this.component = {
-      //   name: this.selected,
-      //   component: ButtonComponent,
-      //   border: { backgroundColor: this.colorList[this.components.length] },
-      // }
-      // this.components.push(this.component)
-      if (this.components.length == 5) {
-        this.inputDisabled = true
-      }
-      // }
-    },
-
-    removeButton(event) {
-      for (const component of this.components) {
-        if (component.name == event.target.innerText) {
-          this.inputDisabled = false
-          console.log(component.name)
-          this.indexOfList = this.components.indexOf(component)
-          break
-        }
-      }
-      this.arrayOfSubjects.splice(this.indexOfList, 1)
-      this.arrayOfWorkCount.splice(this.indexOfList, 1)
-      this.components.splice(this.indexOfList, 1)
-      this.updateChart()
     },
 
     async fetch() {
       if (!this.arrayOfSubjects.includes(this.selected) && this.components.length < 5) {
         this.fetchReady = false
         this.inputDisabled = true
-        this.fetchedWorks = await FetchService.workCountForSubject(this.selected)
+
+        this.fetchedData = await FetchService.workCountForSubject(this.selected)
+        this.fetchedObject = { name: this.selected, data: this.fetchedData }
         this.arrayOfSubjects.push(this.selected)
-        this.arrayOfWorkCount.push(this.fetchedWorks)
+        this.arrayOfFetchedObjects.push(this.fetchedObject)
+
         this.updateChart()
-        this.addButton()
         this.inputDisable()
         this.fetchReady = true
       }
+    },
+
+    updateChart() {
+      this.series = []
+      this.components = []
+      for (let i = 0; i < this.arrayOfFetchedObjects.length; i++) {
+        this.fetchedObject = {
+          name: this.arrayOfFetchedObjects[i].name,
+          data: this.arrayOfFetchedObjects[i].data,
+        }
+
+        this.component = {
+          name: this.arrayOfFetchedObjects[i].name,
+          component: ButtonComponent,
+          border: { backgroundColor: this.colorList[i] },
+        }
+
+        this.components.push(this.component)
+        this.series.push(this.fetchedObject)
+      }
+    },
+
+    removeButton(event) {
+      for (const component of this.components) {
+        if (component.name == event.target.innerText) {
+          this.inputDisabled = false
+          this.indexOfList = this.components.indexOf(component)
+          break
+        }
+      }
+      this.arrayOfFetchedObjects.splice(this.indexOfList, 1)
+      this.components.splice(this.indexOfList, 1)
+      this.arrayOfSubjects.splice(this.indexOfList, 1)
+      this.updateChart()
     },
 
     inputDisable() {
@@ -201,32 +210,11 @@ export default {
         this.inputDisabled = false
       }
     },
-
-    updateChart() {
-      this.series = []
-      this.components = []
-      for (let i = 0; i < this.arrayOfSubjects.length; i++) {
-        this.test = {
-          name: this.arrayOfSubjects[i],
-          data: this.arrayOfWorkCount[i],
-        }
-
-        this.component = {
-          name: this.arrayOfSubjects[i],
-          component: ButtonComponent,
-          border: { backgroundColor: this.colorList[i] },
-        }
-
-        this.series.push(this.test)
-        this.components.push(this.component)
-      }
-    },
   },
 }
 </script>
 
 <style scoped>
-
 .selectStyle {
   background-color: #fffaf0;
   font-family: "Source Sans Pro", sans-serif;
