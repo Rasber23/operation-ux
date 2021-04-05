@@ -200,4 +200,12 @@ h1 {
   width: 550px;
   height: 340px;
 }
+
+/*---------------------------------- för mobileview ----------------------------------*/
+@media screen and (max-width: 576px) {
+  .layer {
+    width: 350px;
+    height: 200px;
+  }
+}
 </style>

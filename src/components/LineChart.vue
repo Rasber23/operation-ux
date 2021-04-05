@@ -15,7 +15,7 @@
         </div>
         <div class="col order-1 order-md-2">
           <div class="row d-flex justify-content-center">
-            <div class="col-4">
+            <div class="col-md-4 col-6">
               <select class="form-select selectStyle" v-model="selected" @change="clicked" :disabled="inputDisabled">
                 <option disabled value="">Välj ett ämne</option>
                 <option v-for="option in options" :value="option.value" :key="option.index">
@@ -225,5 +225,13 @@ export default {
   z-index: 1;
   width: 550px;
   height: 340px;
+}
+
+/*---------------------------------- för mobileview ----------------------------------*/
+@media screen and (max-width: 576px) {
+  .layer {
+    width: 350px;
+    height: 200px;
+  }
 }
 </style>
