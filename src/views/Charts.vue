@@ -97,25 +97,25 @@ Route transitions ____up___
 
 .slide-down-enter-to {
   position: absolute;
-  right: 0;
+  bottom: 0;
 }
 
 
 .slide-down-enter-from {
   position: absolute;
-  right: -100%;
+  bottom: -100%;
 }
 
 
 .slide-down-leave-to {
   position: absolute;
-  right: -100%;
+  bottom: -100%;
 }
 
 
 .slide-down-leave-from {
   position: absolute;
-  right: 0;
+  bottom: 0;
 }
 
 </style>
