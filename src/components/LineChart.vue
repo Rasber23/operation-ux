@@ -93,20 +93,17 @@ export default {
           horizontal: 10,
           vertical: 5,
         },
+        responsive: [
+          {
+            breakpoint: 576,
+            options: {
+              chart: {
+                width: 350,
+              },
+            },
+          },
+        ],
       },
-      // responsive: [
-      //   {
-      //     breakpoint: 610,
-      //     options: {
-      //       chart: {
-      //         width: "50%",
-      //         height: 180,
-      //         type: "line",
-      //       },
-      //     },
-      //   },
-      // ],
-      // },
       series: [
         {
           name: "",
