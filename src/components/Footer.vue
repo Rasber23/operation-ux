@@ -26,5 +26,9 @@ export default {
   text-align: center;
   font-size: 15px;
   line-height: 24px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 1rem;
 }
 </style>
