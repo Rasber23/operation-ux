@@ -32,14 +32,14 @@
           </div>
           <div v-show="first" id="result">
             <div id="surviveCon" v-if="show">
-              <img src="http://placekitten.com/400/400" alt="" />
+              <img src="./../assets/överlever.png" alt="" />
               <p>Survive!</p>
               <br />
               <br />
               <p v-show="showDeathTimer">...But would die after {{ minToSurvive }}min and {{ secToSurvive }}sec</p>
             </div>
             <div id="deathCon" v-else>
-              <img src="http://placekitten.com/300/300" alt="" />
+              <img src="./../assets/krossad.png" alt="" />
               <p>He Dead</p>
             </div>
           </div>
@@ -135,6 +135,6 @@ export default {
   position: absolute;
   z-index: 1;
   width: 550px;
-  height: 340px;
+  height: 550px;
 }
 </style>
