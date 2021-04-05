@@ -14,7 +14,7 @@
           </Facts>
         </div>
         <div class="col order-1 order-md-2">
-          <select v-model="selected" @change="clicked">
+          <select class="form-select selectStyle" v-model="selected" @change="clicked">
             <option :value="selected">{{ selected }}</option>
             <option>Gustave Flaubert</option>
             <option>Leo Tolstoy</option>
@@ -25,6 +25,11 @@
             <option>Charles Dickens</option>
             <option>Anton Checkhov</option></select
           ><br />
+          <div v-if="!fetchReady" class="d-flex align-items-center justify-content-center layer">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
           <div v-show="first" id="result">
             <div id="surviveCon" v-if="show">
               <img src="http://placekitten.com/400/400" alt="" />
@@ -61,9 +66,10 @@ export default {
       secToSurvive: 0,
       numberOfPublications: 0,
       isAlive: true,
-      selected: "Pick a Athour",
+      selected: "Pick an Author",
       show: true,
       first: false,
+      fetchReady: true,
     }
   },
   methods: {
@@ -72,10 +78,12 @@ export default {
     },
 
     async getData() {
+      this.fetchReady = false
       const apiResp = await fetch(`http://openlibrary.org/search.json?author=${this.selected}`)
       const apiData = await apiResp.json()
 
       this.calculateDeath(apiData.numFound)
+      this.fetchReady = true
     },
     calculateDeath(numberOfpublications) {
       console.log(numberOfpublications)
@@ -115,4 +123,18 @@ export default {
 </script>
 
 <style scoped>
+.selectStyle {
+  background-color: #fffaf0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  color: #333333;
+}
+
+.layer {
+  background-color: #fffaf0e5;
+  position: absolute;
+  z-index: 1;
+  width: 550px;
+  height: 340px;
+}
 </style>
