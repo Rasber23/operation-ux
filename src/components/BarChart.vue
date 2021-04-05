@@ -1,8 +1,8 @@
 <template>
-  <div class="col-10">
+  <div class="col">
     <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="col order-2 order-md-1">
           <Facts>
             <template v-slot:heading>Vilken genre var mest publicerad år X?</template>
             <template v-slot:text
@@ -13,7 +13,7 @@
             >
           </Facts>
         </div>
-        <div class="col">
+        <div class="col order-1 order-md-2">
           <select v-model="selected" @change="clicked">
             <option :value="selected">{{ selected }}</option>
             <option>2020</option>

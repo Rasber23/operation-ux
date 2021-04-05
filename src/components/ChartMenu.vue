@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar col d-none d-lg-block">
+  <nav class="navbar col-2 d-none d-lg-block">
     <ul class="navbar-nav">
       <li class="nav-item">
         <router-link class="nav-link" to="/charts/linechart">
