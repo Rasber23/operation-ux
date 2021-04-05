@@ -4,7 +4,7 @@
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-body">
-              <h1><slot name="heading"></slot></h1>
+              <h2><slot name="heading"></slot></h2>
               <h3><slot name="subheading"></slot></h3>
               <p><slot name="text"></slot></p>
               <p v-if="show">width: {{ width }}</p>
