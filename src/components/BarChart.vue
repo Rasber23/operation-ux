@@ -14,7 +14,7 @@
           </Facts>
         </div>
         <div class="col order-1 order-md-2">
-          <select v-model="selected" @change="clicked">
+          <select class="form-select selectStyle" v-model="selected" @change="clicked">
             <option :value="selected">{{ selected }}</option>
             <option>2020</option>
             <option>2010</option>
@@ -25,6 +25,11 @@
             <option>1960</option>
             <option>1500</option></select
           ><br />
+          <div v-if="!fetchReady" class="d-flex align-items-center justify-content-center layer">
+            <div class="spinner-border text-primary" role="status">
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          </div>
           <apexchart width="550" :options="chartOptions" :series="series"></apexchart>
         </div>
       </div>
@@ -61,6 +66,9 @@ export default {
           type: "bar",
           height: 350,
         },
+        legend: {
+          show: false,
+        },
         plotOptions: {
           bar: {
             distributed: true,
@@ -82,6 +90,7 @@ export default {
           categories: [],
         },
       },
+      fetchReady: true,
     }
   },
   async created() {
@@ -93,6 +102,7 @@ export default {
     }
 
     for (const p of promises) {
+      this.fetchReady = false;
       await p
     }
 
@@ -124,7 +134,9 @@ export default {
 
       this.chartOptions.xaxis.categories.push(...this.listOfSubjects)
       console.log("efter", this.chartOptions.xaxis.categories.length)
+      this.fetchReady = true
     },
+
     async clicked() {
       const ListOfSubjects = ["dance", "film", "painting", "design", "music"]
       const promises = []
@@ -134,6 +146,7 @@ export default {
       }
 
       for (const p of promises) {
+        this.fetchReady = false
         await p
       }
 
@@ -156,5 +169,20 @@ h1 {
 
 .bigCon {
   padding-top: 10em;
+}
+
+.selectStyle {
+  background-color: #fffaf0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  color: #333333;
+}
+
+.layer {
+  background-color: #fffaf0e5;
+  position: absolute;
+  z-index: 1;
+  width: 550px;
+  height: 340px;
 }
 </style>
