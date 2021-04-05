@@ -1,8 +1,8 @@
 <template>
-  <div class="col-10">
+  <div class="col">
     <div class="container">
       <div class="row">
-        <div class="col">
+        <div class="col order-2 order-md-1">
           <Facts>
             <template v-slot:heading>Hur har olika genrers populäritet förändrats genom åren?</template>
             <template v-slot:text
@@ -13,7 +13,7 @@
             </template>
           </Facts>
         </div>
-        <div class="col">
+        <div class="col order-1 order-md-2">
           <div class="row d-flex justify-content-center">
             <div class="col-4">
               <select class="form-select selectStyle" v-model="selected" @change="clicked" :disabled="inputDisabled">
