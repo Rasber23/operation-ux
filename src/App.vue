@@ -69,10 +69,10 @@ export default {
       }
       if (this.touchGateX()) {
         if (this.startX > this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
-          this.transitionName = "slide-left"
+          this.transitionName = "slide-right"
           this.acceptedSwipeX("left")
         } else if (this.startX < this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
-          this.transitionName = "slide-right"
+          this.transitionName = "slide-left"
           this.acceptedSwipeX("right")
         }
       }
