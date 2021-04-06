@@ -5,12 +5,13 @@
   <div class="container mt-4" >
     <div class="row align-items-center">
       <div class="col-12 col-lg-6">
-        <h1>Välkommen</h1>
+        <h1>Välkommen till BookLab</h1>
         <h5>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci, amet commodi consectetur hic in laboriosam
-          laudantium libero magnam modi nam necessitatibus nesciunt non placeat recusandae reiciendis repudiandae,
-          tenetur veniam voluptatibus.
+          Hos oss kan du utforska allt från hur olika genrers popularitet har förändrats genom åren till om en författare kan överleva
+          den sammanlagda tyngden av sina samtliga publicerade böcker.
         </h5>
+        <br>
+        <h5>Låt oss hjälpa dig upptäcka böckernas värld! :3</h5>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur cum enim exercitationem expedita
           explicabo inventore iure magni mollitia obcaecati praesentium, sequi, sint tempora ullam, voluptatum.
@@ -97,5 +98,8 @@ export default {
   width: 5em;
   background: #6F1D1B;
   border-radius: 3px;
+}
+p{
+  color:#fffaf0 ;
 }
 </style>
