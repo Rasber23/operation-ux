@@ -66,6 +66,8 @@ export default {
 /* just for clarity that the image is round - will be removed */
 .image {
   background-color: #333333;
+  height: 5rem;
+  width: 5rem;
 }
 
 h1 {
