@@ -25,11 +25,8 @@ export default {
       startY: 0,
       endY: 0,
       ticker: 1,
-      mapOfRouts: ["/charts/linechart", "/charts/barchart", "/charts/bookofdeath", "/", "/about"],
       touchTolerance: 150,
-      transitionName: "fru",
-      transHolder:"",
-
+      transitionName: "",
     }
 
   },
@@ -64,7 +61,6 @@ export default {
 
       if (this.touchGateY()) {
         if (this.startY > this.endY && Math.abs(touchTravelX) < this.touchTolerance) {
-          //console.log("SWIPE UPP")
           console.log(this.$route.path)
           this.acceptedSwipeY("up")
         } else if (this.startY < this.endY && Math.abs(touchTravelX) < this.touchTolerance) {
@@ -73,11 +69,9 @@ export default {
       }
       if (this.touchGateX()) {
         if (this.startX > this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
-          //console.log("SWIPE left")
           this.transitionName = "slide-left"
           this.acceptedSwipeX("left")
         } else if (this.startX < this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
-         // console.log("Swipe Right")
           this.transitionName = "slide-right"
           this.acceptedSwipeX("right")
         }
@@ -89,7 +83,6 @@ export default {
     },
 
     myTouchStartHandler(evt) {
-
       this.startX = evt.touches[0].screenX;
       this.startY = evt.touches[0].screenY;
     },
@@ -98,54 +91,53 @@ export default {
       this.endY = evt.touches[0].screenY;
     },
     acceptedSwipeX(swipe) {
-
       switch (this.$route.path) {
         case "/charts/linechart":
-          if (swipe === "left") {
+          if (swipe === "right") {
             this.$router.push("/");
           } else {
             this.$router.push("/about");
           }
           break;
         case "/charts/barchart":
-          if (swipe === "left") {
+          if (swipe === "right") {
             this.$router.push("/");
           } else {
             this.$router.push("/about");
           }
           break;
         case "/charts/bookofdeath":
-          if (swipe === "left") {
+          if (swipe === "right") {
             this.$router.push("/");
           } else {
             this.$router.push("/about");
           }
           break;
         case "/":
-          if (swipe === "right") {
-            this.$router.push("/charts/linechart");
-          }
-          break;
-        case "/about":
           if (swipe === "left") {
             this.$router.push("/charts/linechart");
           }
           break;
+        case "/about":
+          if (swipe === "right") {
+            this.$router.push("/charts/linechart");
+          }
+          break;
         default:
-          console.log("wtf!?")
+          console.log("Invalid SWIPE!")
       }
     },
     acceptedSwipeY(swipe) {
       switch (this.$route.path) {
         case "/charts/linechart":
-          if (swipe === "down") {
+          if (swipe === "up") {
             this.transitionName="slide-down"
             console.log("thisTRANS " + this.transitionName )
             this.$router.push("/charts/barchart");
           }
           break;
         case "/charts/barchart":
-          if (swipe === "down") {
+          if (swipe === "up") {
             this.$router.push("/charts/bookofdeath");
             this.transitionName="slide-up"
           } else {
@@ -154,13 +146,13 @@ export default {
           }
           break;
         case "/charts/bookofdeath":
-          if (swipe === "up") {
+          if (swipe === "down") {
             this.$router.push("/charts/barchart");
             this.transitionName="slide-down"
           }
           break;
         default:
-          console.log("wtf!?")
+          console.log("Invalid SWIPE!")
       }
 
     }
