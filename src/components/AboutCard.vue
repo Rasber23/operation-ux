@@ -32,7 +32,7 @@ export default {
 
 .image {
   margin-left: 1em;
-  height: 80px;
-  width: 80px;
+  max-height: 80px;
+  max-width: 80px;
 }
 </style>
