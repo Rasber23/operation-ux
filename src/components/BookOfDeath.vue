@@ -2,7 +2,7 @@
   <div class="col">
     <div class="container">
       <div class="row">
-        <div class="col order-2 order-md-1">
+        <div class="col-md-6 col-sm-12 order-2 order-md-1">
           <Facts>
             <template v-slot:heading>Kan en författare överleva vikten av sina böcker?</template>
             <template v-slot:text
@@ -13,7 +13,7 @@
             >
           </Facts>
         </div>
-        <div class="col order-1 order-md-2">
+        <div class="col-md-6 col-sm-12 order-1 order-md-2">
           <select class="form-select selectStyle" v-model="selected" @change="clicked">
             <option :value="selected">{{ selected }}</option>
             <option>Gustave Flaubert</option>
