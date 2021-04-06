@@ -25,7 +25,7 @@ export default {
       startY: 0,
       endY: 0,
       ticker: 1,
-      touchTolerance: 100,
+      touchTolerance: 90,
       transitionName: "",
     }
 
@@ -69,10 +69,10 @@ export default {
       }
       if (this.touchGateX()) {
         if (this.startX > this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
-          this.transitionName = "slide-left"
+          this.transitionName = "slide-right"
           this.acceptedSwipeX("left")
         } else if (this.startX < this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
-          this.transitionName = "slide-right"
+          this.transitionName = "slide-left"
           this.acceptedSwipeX("right")
         }
       }
@@ -139,16 +139,16 @@ export default {
         case "/charts/barchart":
           if (swipe === "up") {
             this.$router.push("/charts/bookofdeath");
-            this.transitionName="slide-up"
+            this.transitionName="slide-down"
           } else {
             this.$router.push("/charts/linechart");
-            this.transitionName="slide-down"
+            this.transitionName="slide-up"
           }
           break;
         case "/charts/bookofdeath":
           if (swipe === "down") {
             this.$router.push("/charts/barchart");
-            this.transitionName="slide-down"
+            this.transitionName="slide-up"
           }
           break;
         default:
