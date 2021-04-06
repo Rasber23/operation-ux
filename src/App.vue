@@ -142,7 +142,7 @@ export default {
       switch (this.$route.path) {
         case "/charts/linechart":
           if (swipe === "down") {
-            this.transitionName="slide-up"
+            this.transitionName="slide-down"
             console.log("thisTRANS " + this.transitionName )
             this.$router.push("/charts/barchart");
           }
@@ -150,16 +150,16 @@ export default {
         case "/charts/barchart":
           if (swipe === "down") {
             this.$router.push("/charts/bookofdeath");
-            this.transitionName="slide-down"
+            this.transitionName="slide-up"
           } else {
             this.$router.push("/charts/linechart");
-            this.transitionName="slide-up"
+            this.transitionName="slide-down"
           }
           break;
         case "/charts/bookofdeath":
           if (swipe === "up") {
             this.$router.push("/charts/barchart");
-            this.transitionName="slide-up"
+            this.transitionName="slide-down"
           }
           break;
         default:
@@ -215,7 +215,7 @@ Route transitions ____LEFT___
 
 .slide-left-leave-to {
   position: absolute;
-  left: -100%;
+  right: -100%;
 }
 
 
@@ -247,7 +247,7 @@ Route transitions ____LEFT___
 
 .slide-right-leave-to {
   position: absolute;
-  right: -100%;
+  left: -100%;
 }
 
 

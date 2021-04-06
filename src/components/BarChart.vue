@@ -122,9 +122,6 @@ export default {
     }
 
     this.updateChart()
-
-    // this.series[0].data = this.listOfdata;
-    //this.chartOptions.xaxis.categories = this.listOfSubjects;
   },
   methods: {
     async loadApi(subject) {
