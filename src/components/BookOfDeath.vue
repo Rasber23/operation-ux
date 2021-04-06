@@ -36,12 +36,12 @@
               <br />
               <br />
               <h4>
-                <strong>The author survived!</strong>
+                <strong>{{ selected }} survived!</strong>
               </h4>
               <p v-show="showDeathTimer">
                 ...but would die after {{ minToSurvive }}min and {{ secToSurvive }} sec under the weight.
               </p>
-              <p>{{ selected }} has published {{ numberOfPublications }} books.</p>
+              <!-- <p>{{ selected }} has published {{ numberOfPublications }} books.</p> -->
               <br />
             </div>
             <div id="deathCon" v-else>
@@ -49,9 +49,9 @@
               <br />
               <br />
               <h5>
-                <strong>The author did not survive the weight of the books!</strong>
+                <strong>{{ selected }} did not survive the weight of the books!</strong>
               </h5>
-              <p>{{ selected }} has published {{ numberOfPublications }} books.</p>
+              <!-- <p>{{ selected }} has published {{ numberOfPublications }} books.</p> -->
             </div>
           </div>
         </div>
