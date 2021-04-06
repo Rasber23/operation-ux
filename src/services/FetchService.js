@@ -7,7 +7,7 @@ const FetchService = {
     workCount = []
 
     for (let i = 0; i < 6; i++) {
-      let resp = await fetch("http://openlibrary.org/subjects/" + selected + ".json?published_in=" + years[i])
+      let resp = await fetch("https://openlibrary.org/subjects/" + selected + ".json?published_in=" + years[i])
       let subject = await resp.json()
       workCount.push(subject.work_count)
     }

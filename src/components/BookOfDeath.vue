@@ -90,7 +90,7 @@ export default {
 
     async getData() {
       this.fetchReady = false
-      const apiResp = await fetch(`http://openlibrary.org/search.json?author=${this.selected}`)
+      const apiResp = await fetch(`https://openlibrary.org/search.json?author=${this.selected}`)
       const apiData = await apiResp.json()
 
       this.calculateDeath(apiData.numFound)
