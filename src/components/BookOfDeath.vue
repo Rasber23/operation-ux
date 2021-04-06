@@ -56,6 +56,12 @@
           </div>
         </div>
       </div>
+      <div id="arowCon">
+        <router-link to="/charts/barchart">
+          <img src="../assets/Icons/arrow-up-red.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+        </router-link>
+          <img src="../assets/Icons/arrow-down-grey.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+      </div>
     </div>
   </div>
 </template>
@@ -146,5 +152,10 @@ h2{
   margin-top: 3em;
   margin-bottom: 2em;
 }
+#arowCon{
 
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 3em;
+}
 </style>

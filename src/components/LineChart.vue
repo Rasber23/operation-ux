@@ -46,7 +46,14 @@
             </component>
           </div>
         </div>
+
       </div>
+    </div>
+    <div id="arowCon">
+        <img src="../assets/Icons/arrow-up-grey.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+      <router-link to="/charts/barchart">
+      <img src="../assets/Icons/arrow-down-red.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -226,7 +233,12 @@ export default {
   width: 550px;
   height: 340px;
 }
+#arowCon{
 
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 3em;
+}
 /*---------------------------------- för mobileview ----------------------------------*/
 @media screen and (max-width: 576px) {
   .layer {

@@ -35,6 +35,14 @@
         </div>
       </div>
     </div>
+        <div id="arowCon">
+          <router-link to="/charts/lineChart">
+            <img src="../assets/Icons/arrow-up-red.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+            </router-link>
+            <router-link to="/charts/BookOfDeath">
+              <img src="../assets/Icons/arrow-down-red.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+          </router-link>
+        </div>
   </div>
 </template>
 
@@ -169,7 +177,12 @@ export default {
 }
 </script>
 <style scoped>
+#arowCon{
 
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 3em;
+}
 
 .selectStyle {
   background-color: #fffaf0;
