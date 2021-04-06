@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-4">
+  <div id="greyOut" v-if="show">
+    <img id="dasHand" src="./../assets/Icons/hand.svg" alt="FACL">
+  </div>
+  <div class="container mt-4" >
     <div class="row align-items-center">
       <div class="col-12 col-lg-6">
         <h1>Välkommen</h1>
@@ -24,13 +27,51 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
 export default {
   name: "Home",
+  data(){
+    return{
+      show: true,
+    }
+  },
+  created() {
+    setTimeout(this.showExit, 3000);
+    },
+  methods:{
+
+    showExit(){
+      this.show=false;
+    }
+  }
 }
 </script>
 
 <style scoped>
+#greyOut{
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  display: flex;
+
+  justify-content: center;
+}
+
+#dasHand{
+  display: inline-block;
+
+  width: 100px;
+  height: 100px;
+  margin: 10em;
+}
+
 </style>

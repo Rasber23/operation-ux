@@ -1,10 +1,10 @@
 <template>
   <div class="col">
     <div class="container">
+      <h2>Kan en författare överleva vikten av sina böcker?</h2>
       <div class="row">
         <div class="col-md-6 col-sm-12 order-2 order-md-1">
           <Facts>
-            <template v-slot:heading>Kan en författare överleva vikten av sina böcker?</template>
             <template v-slot:text
               >BookOfDeath ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
               quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
@@ -142,11 +142,9 @@ export default {
   color: #333333;
 }
 
-.layer {
-  background-color: #fffaf0;
-  position: absolute;
-  z-index: 1;
-  width: 600px;
-  height: 600px;
+h2{
+  margin-top: 3em;
+  margin-bottom: 2em;
 }
+
 </style>

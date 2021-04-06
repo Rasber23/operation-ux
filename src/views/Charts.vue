@@ -3,8 +3,6 @@
     <div class="row">
     <chart-menu></chart-menu>
 
-      
-
     <div class="col" @click="checkName">
       <router-view v-slot="{ Component }">
         <transition :name="test" >
@@ -37,6 +35,8 @@ methods:{
 }
 </script>
 <style scoped>
+
+
 
 /*
 Route transitions ____up___

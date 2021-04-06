@@ -1,10 +1,10 @@
 <template>
   <div class="col">
     <div class="container">
+          <h2>Vilken genre var mest publicerad år X?</h2>
       <div class="row">
         <div class="col order-2 order-md-1">
           <Facts>
-            <template v-slot:heading>Vilken genre var mest publicerad år X?</template>
             <template v-slot:text
               >BarChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
               quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
@@ -12,6 +12,7 @@
               possimus praesentium, quos saepe vitae.</template
             >
           </Facts>
+
         </div>
         <div class="col order-1 order-md-2">
           <select class="form-select selectStyle" v-model="selected" @change="clicked">
@@ -168,20 +169,7 @@ export default {
 }
 </script>
 <style scoped>
-p {
-  color: black;
-}
-h1 {
-  color: black;
-}
-.con {
-  display: flex;
-  flex-direction: row;
-}
 
-.bigCon {
-  padding-top: 10em;
-}
 
 .selectStyle {
   background-color: #fffaf0;
@@ -197,12 +185,18 @@ h1 {
   width: 550px;
   height: 340px;
 }
-
+h2 {
+  margin-top: 2em;
+}
 /*---------------------------------- för mobileview ----------------------------------*/
 @media screen and (max-width: 576px) {
   .layer {
     width: 350px;
     height: 200px;
+  }
+  h2{
+    margin-top: 3em;
+    margin-bottom: 2em;
   }
 }
 </style>

@@ -1,4 +1,5 @@
 <template>
+
   <div class="container">
     <div class="row">
       <div class="col col-lg-10">
@@ -33,6 +34,7 @@
     </div>
     <div class="footer"></div>
   </div>
+
 </template>
 
 <script>
@@ -80,6 +82,7 @@ h1 {
   margin-bottom: 5%;
   width: 60%;
 }
+
 
 /*---------------------------------- för mobileview ----------------------------------*/
 @media screen and (max-width: 576px) {
