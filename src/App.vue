@@ -25,7 +25,7 @@ export default {
       startY: 0,
       endY: 0,
       ticker: 1,
-      touchTolerance: 150,
+      touchTolerance: 100,
       transitionName: "",
     }
 
