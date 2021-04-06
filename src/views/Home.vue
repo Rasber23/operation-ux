@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-4">
-    <div class="row">
+    <div class="row align-items-center">
       <div class="col-12 col-lg-6">
         <h1>Välkommen</h1>
         <h5>
@@ -20,7 +20,7 @@
         </p>
       </div>
       <div class="col-12 col-lg-6">
-        <img src="http://placekitten.com/400/400" class="img-fluid" alt="...">
+        <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2053&q=80" class="img-fluid rounded" alt="...">
       </div>
     </div>
   </div>
