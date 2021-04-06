@@ -38,7 +38,7 @@ export default {
         console.log("TRAVEL Y= " + touchTravelY)
         return true;
       } else {
-        console.log("klick")
+        console.log("klick y")
         return false;
       }
     },
@@ -49,7 +49,7 @@ export default {
         console.log("TRAVEL X= " + touchTravelX)
         return true;
       } else {
-        console.log("klick")
+        console.log("klick x")
         return false;
       }
 
@@ -58,6 +58,10 @@ export default {
       let touchTravelY = this.startY - this.endY;
       let touchTravelX = this.startX - this.endX;
 
+     if(!this.touchGateX() && !this.touchGateY()){
+        console.log("ITS A KLICk")
+        this.transitionName="";
+      }
 
       if (this.touchGateY()) {
         if (this.startY > this.endY && Math.abs(touchTravelX) < this.touchTolerance) {
