@@ -42,10 +42,10 @@
               <br />
               <br />
               <h4>
-                <strong>{{ selected }} survived!</strong>
+                <strong>{{ selected }} överlevde!</strong>
               </h4>
               <p v-show="showDeathTimer">
-                ...but would die after {{ minToSurvive }}min and {{ secToSurvive }} sec under the weight.
+                ...men skulle dö efter {{ minToSurvive }} minuter och {{ secToSurvive }} sekunder under vikten av böckerna.
               </p>
               <!-- <p>{{ selected }} has published {{ numberOfPublications }} books.</p> -->
               <br />
@@ -55,7 +55,7 @@
               <br />
               <br />
               <h5>
-                <strong>{{ selected }} did not survive the weight of the books!</strong>
+                <strong>{{ selected }} överlevde icke vikten av sina böcker!</strong>
               </h5>
               <!-- <p>{{ selected }} has published {{ numberOfPublications }} books.</p> -->
             </div>
@@ -89,7 +89,7 @@ export default {
       secToSurvive: 0,
       numberOfPublications: 0,
       isAlive: true,
-      selected: "Pick an Author",
+      selected: "Välj en författare",
       show: true,
       first: false,
       fetchReady: true,
