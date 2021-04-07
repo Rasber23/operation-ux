@@ -8,7 +8,7 @@
           den sammanlagda tyngden av sina samtliga publicerade böcker.
         </h5>
         <br>
-        <h5>Låt oss hjälpa dig upptäcka böckernas värld! :3</h5>
+        <h5>Låt oss hjälpa dig upptäcka böckernas värld!</h5>
 
       </div>
       <div class="col-12 col-lg-6">
