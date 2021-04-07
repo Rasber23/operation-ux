@@ -1,7 +1,4 @@
 <template>
-  <div id="greyOut" v-if="show">
-    <img id="dasHand" src="./../assets/Icons/hand.svg" alt="FACL">
-  </div>
   <div class="container mt-4" >
     <div class="row align-items-center">
       <div class="col-12 col-lg-6">
@@ -11,30 +8,21 @@
           den sammanlagda tyngden av sina samtliga publicerade böcker.
         </h5>
         <br>
-        <h5>Låt oss hjälpa dig upptäcka böckernas värld! :3</h5>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam consectetur cum enim exercitationem expedita
-          explicabo inventore iure magni mollitia obcaecati praesentium, sequi, sint tempora ullam, voluptatum.
-          Consequatur cum deserunt dolor eos ex quam quod sapiente sunt voluptatem? Dolore eveniet quod soluta. Ab
-          aliquam aliquid animi asperiores illum labore quam reprehenderit tempora voluptates. Cupiditate, et fuga
-          laborum magnam nisi quae rem ullam voluptatibus? Animi cupiditate dolore, eos eum fuga fugiat illo magnam
-          molestias, quasi quibusdam recusandae veniam, veritatis. Amet blanditiis consectetur dignissimos dolore
-          dolores facere facilis illum, iste magnam obcaecati odio perferendis perspiciatis quam quibusdam rem
-          repellendus rerum tenetur, veritatis vero.
-        </p>
+        <h5>Låt oss hjälpa dig upptäcka böckernas värld!</h5>
+
       </div>
       <div class="col-12 col-lg-6">
         <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2053&q=80" class="img-fluid rounded" alt="...">
       </div>
       <div id="navCON">
         <router-link to="/charts/linechart">
-          <img class="homeNav" src="../assets/Icons/Graph.svg" alt=""   />
+          <img class="homeNav" src="../assets/Icons/Graph.svg" alt=""/>
         </router-link>
         <router-link to="/charts/barchart">
-          <img class="homeNav" src="../assets/Icons/Bar_chart.svg" alt=""   />
+          <img class="homeNav" src="../assets/Icons/Bar_chart.svg" alt=""/>
         </router-link>
         <router-link to="/charts/bookOfDeath">
-          <img class="homeNav" src="../assets/Icons/Falling_book.svg" alt=""   />
+          <img class="homeNav" src="../assets/Icons/Falling_book.svg" alt=""/>
         </router-link>
       </div>
     </div>
@@ -63,28 +51,7 @@ export default {
 </script>
 
 <style scoped>
-#greyOut{
-  position: fixed; /* Sit on top of the page content */
-  width: 100%; /* Full width (cover the whole page) */
-  height: 100%; /* Full height (cover the whole page) */
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
-  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-  display: flex;
 
-  justify-content: center;
-}
-
-#dasHand{
-  display: inline-block;
-
-  width: 100px;
-  height: 100px;
-  margin: 10em;
-}
 #navCON{
   display: flex;
   justify-content: space-between;

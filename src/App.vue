@@ -1,4 +1,7 @@
 <template>
+  <div id="greyOut" v-if="show" @click="this.show=false">
+    <img id="dasHand" src="./assets/Icons/hand.svg" alt="HELVETE">
+  </div>
   <div id="touchSurface" v-on:touchstart='myTouchStartHandler' v-on:touchmove='myTouchEndHandler'
        v-on:touchend='touchControl' >
     <Header ></Header>
@@ -27,10 +30,17 @@ export default {
       ticker: 1,
       touchTolerance: 90,
       transitionName: "",
+      show: true,
     }
 
   },
+  created() {
+    setTimeout(this.showExit, 3000);
+  },
   methods: {
+    showExit(){
+      this.show=false;
+    },
     touchGateY() {
       let touchTravelY = this.startY - this.endY;
 
@@ -61,6 +71,7 @@ export default {
      if(!this.touchGateX() && !this.touchGateY()){
         console.log("ITS A KLICk")
         this.transitionName="";
+        this.show=false;
       }
 
       if (this.touchGateY()) {
@@ -247,5 +258,28 @@ Route transitions ____LEFT___
 .slide-right-leave-from {
   position: absolute;
   right: 0;
+}
+
+#greyOut{
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+  display: flex;
+
+  justify-content: center;
+}
+
+#dasHand{
+  display: inline-block;
+
+  width: 100px;
+  height: 100px;
+  margin: 10em;
 }
 </style>
