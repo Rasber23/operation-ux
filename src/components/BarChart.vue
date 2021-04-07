@@ -10,8 +10,9 @@
             <template v-slot:subheading>
               Välj ett år och se vilka fem genrer som blev mest publicerade det året.
             </template>
-            <template v-slot:text
-              >Den första bok som någonsin trycktes och publicerades var The Gutenberg Bible år 1453. Idag beräknas närmare en miljon
+            <template v-slot:text>
+              <strong>Visste du att?</strong><br />
+              Den första bok som någonsin trycktes och publicerades var The Gutenberg Bible år 1453. Idag beräknas närmare en miljon
               nya böcker publiceras varje år i världen och i mitten av år 2017 uppskattades det totala antalet unika böcker i världen vara
               hela 134,399,411 stycken.
               <br>
