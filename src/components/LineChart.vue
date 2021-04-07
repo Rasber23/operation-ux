@@ -1,15 +1,20 @@
 <template>
   <div class="col">
     <div class="container">
+      <h2>Hur har genrers popularitet förändrats genom åren?</h2>
       <div class="row">
         <div class="col order-2 order-md-1">
           <Facts>
-            <template v-slot:heading>Hur har olika genrers populäritet förändrats genom åren?</template>
+            <template v-slot:subheading>
+              Välj genrer och jämför hur deras popularitet har förändrats de senaste hundra åren. Du kan välja högst fem
+              genrer åt gången.
+            </template>
             <template v-slot:text
-              >LineChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
-              quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
-              quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis
-              possimus praesentium, quos saepe vitae.
+              ><strong>Visste du att?</strong> Baserat på en studie publicerad 2012 som tagit fram antalet sålda kopior
+              av böcker de senaste 50 åren så är Bibeln (3,9 miljarder kopior), Quotations from Chairman Mao Tse-Tung
+              (820 miljoner kopior) och Harry Potter (400 miljoner kopior) de tre mest lästa böckerna i världen.
+              [BusinessInsider]
+              https://www.businessinsider.com/the-top-10-most-read-books-in-the-world-infographic-2012-12?r=US&IR=T
             </template>
           </Facts>
         </div>
@@ -46,13 +51,24 @@
             </component>
           </div>
         </div>
-
       </div>
     </div>
     <div id="arowCon">
-        <img src="../assets/Icons/arrow-up-grey.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+      <img
+        src="../assets/Icons/arrow-up-grey.svg"
+        alt=""
+        width="30"
+        height="24"
+        class="d-inline-block align-text-top"
+      />
       <router-link to="/charts/barchart">
-      <img src="../assets/Icons/arrow-down-red.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+        <img
+          src="../assets/Icons/arrow-down-red.svg"
+          alt=""
+          width="30"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
       </router-link>
     </div>
   </div>
@@ -219,6 +235,11 @@ export default {
 </script>
 
 <style scoped>
+h2 {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
 .selectStyle {
   background-color: #fffaf0;
   font-family: "Source Sans Pro", sans-serif;
@@ -233,8 +254,7 @@ export default {
   width: 550px;
   height: 340px;
 }
-#arowCon{
-
+#arowCon {
   position: fixed;
   bottom: 0;
   margin-bottom: 3em;
