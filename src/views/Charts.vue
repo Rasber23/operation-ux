@@ -36,7 +36,10 @@ methods:{
 </script>
 <style scoped>
 
-
+h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+} 
 
 /*
 Route transitions ____up___

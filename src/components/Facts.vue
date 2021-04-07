@@ -5,7 +5,7 @@
           <div class="modal-content">
             <div class="modal-body">
               <h2><slot name="heading"></slot></h2>
-              <h3><slot name="subheading"></slot></h3>
+              <h5><slot name="subheading"></slot></h5>
               <p><slot name="text"></slot></p>
               <p v-if="show">width: {{ width }}</p>
             </div>
