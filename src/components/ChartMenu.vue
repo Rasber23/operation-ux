@@ -4,13 +4,13 @@
       <li class="chart-item">
         <router-link class="chart-link" to="/charts/linechart">
           <img class="paddingForSvg" src="./../assets/Icons/Graph.svg" alt="" />
-          <span>Publicerade verk inom genre per år</span>
+          <span>Genres popularitet genom åren</span>
         </router-link>
       </li>
       <li class="chart-item">
         <router-link class="chart-link" to="/charts/barchart">
           <img class="paddingForSvg" src="./../assets/Icons/Bar_chart.svg" alt="" />
-          <span>Genres popularitet genom åren</span>
+          <span>Publicerade verk inom genre per år</span>
         </router-link>
       </li>
       <li class="chart-item">
