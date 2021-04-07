@@ -177,8 +177,22 @@ export default {
 </script>
 
 <style>
+/* .container {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  color: #333333;
+} */
+
+h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
+} 
+
 body {
   background-color: #fffaf0;
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 16px;
+  color: #333333;
 }
 
 html {

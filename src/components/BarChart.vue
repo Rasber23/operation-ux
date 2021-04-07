@@ -177,6 +177,7 @@ export default {
 }
 </script>
 <style scoped>
+
 #arowCon{
 
   position: fixed;
@@ -198,8 +199,11 @@ export default {
   width: 550px;
   height: 340px;
 }
+
 h2 {
   margin-top: 2em;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
 }
 /*---------------------------------- för mobileview ----------------------------------*/
 @media screen and (max-width: 576px) {
