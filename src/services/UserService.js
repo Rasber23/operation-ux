@@ -35,7 +35,7 @@ const users = [
   new User(
     "Rasmus",
     "Utvecklare",
-    "Good To Great Good to Great presenterar resultaten av ett femårigt forskningsprojekt. Collins har identifierat samtliga börsnoterade amerikanska företag som uppfyllt två kriterier. Det första är att de under minst femton år varit ganska \"vanliga\" företag med börskurser som skvalpat runt index. Men sedan har något hänt. Efter en brytpunkt har de under minst femton år i rad haft en kursutveckling som varit minst tre gånger bättre än index. Collins fann elva företag som uppfyllde dessa kriterier. Vad är det som skiljer dessa företag från andra? Hur tar man språnget från \"Good to Great\"? Det är den frågan Collins försöker besvara. ",
+    "Good To Great Good to Great presenterar resultaten av ett femårigt forskningsprojekt. Collins har identifierat",
     require("./../assets/person1.png")
   ),
   new User(
