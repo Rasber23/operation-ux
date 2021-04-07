@@ -2,8 +2,7 @@
   <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-primary">
     <div class="container-fluid">
       <router-link class="navbar-brand" to="/">
-        <img src="../assets/logo.png" alt="" width="30" height="24" class="d-inline-block align-text-top" />
-        BookLab
+        <img src="./../assets/logos/Logo_white.svg" alt="" width="85" class="d-inline-block align-text-top" />
       </router-link>
       <button
         class="navbar-toggler"
