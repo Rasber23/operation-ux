@@ -153,10 +153,12 @@ export default {
   color: #333333;
 }
 
-h2{
-  margin-top: 3em;
-  margin-bottom: 2em;
+h2 {
+  margin-top: 2em;
+  font-family: "Playfair Display", serif;
+  font-size: 28px;
 }
+
 #arowCon{
 
   position: fixed;
