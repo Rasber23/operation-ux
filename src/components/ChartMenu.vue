@@ -49,6 +49,8 @@ export default {
   border-radius: 1rem 1rem;
   overflow: hidden;
   padding: 0;
+  padding-top: 1em;
+  padding-right: 1em;
 }
 
 .chartbar-nav {
