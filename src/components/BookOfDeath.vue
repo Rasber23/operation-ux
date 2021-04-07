@@ -2,8 +2,6 @@
   <div class="col">
     <div class="container">
       <h2>Kan en författare överleva vikten av sina böcker?</h2>
-      <h5>Välj en författare och få svar på om denna kan överleva den sammanlagda tyngden av sina samtliga publicerade böcker.
-      </h5>
       <div class="row">
         <div class="col-md-6 col-sm-12 order-2 order-md-1">
           <Facts>

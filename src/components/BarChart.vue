@@ -1,7 +1,7 @@
 <template>
   <div class="col">
     <div class="container">
-      <h2>Kan författaren överleva tyngden av sina samlade böcker?</h2>
+      <h2>Vilka är det valda årets mest publicerade genrer?</h2>
 
       <div class="row">
         <div class="col order-2 order-md-1">
