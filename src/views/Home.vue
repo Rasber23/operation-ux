@@ -14,10 +14,6 @@
           explicabo inventore iure magni mollitia obcaecati praesentium, sequi, sint tempora ullam, voluptatum.
           Consequatur cum deserunt dolor eos ex quam quod sapiente sunt voluptatem? Dolore eveniet quod soluta. Ab
           aliquam aliquid animi asperiores illum labore quam reprehenderit tempora voluptates. Cupiditate, et fuga
-          laborum magnam nisi quae rem ullam voluptatibus? Animi cupiditate dolore, eos eum fuga fugiat illo magnam
-          molestias, quasi quibusdam recusandae veniam, veritatis. Amet blanditiis consectetur dignissimos dolore
-          dolores facere facilis illum, iste magnam obcaecati odio perferendis perspiciatis quam quibusdam rem
-          repellendus rerum tenetur, veritatis vero.
         </p>
       </div>
       <div class="col-12 col-lg-6">
