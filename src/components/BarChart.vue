@@ -1,10 +1,13 @@
 <template>
   <div class="col">
     <div class="container">
-          <h2>Vilken genre var mest publicerad år X?</h2>
+      <h2>Kan författaren överleva tyngden av sina samlade böcker?</h2>
+      <h5>Välj ett år och se vilka fem genrer som blev mest publicerade det året.
+      </h5>
       <div class="row">
         <div class="col order-2 order-md-1">
           <Facts>
+<<<<<<< HEAD
             <template v-slot:subheading>
               Välj ett år och se vilka fem genrer som blev mest publicerade det året.
             </template>
@@ -13,6 +16,16 @@
               quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
               quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis
               possimus praesentium, quos saepe vitae.</template
+=======
+            <template v-slot:text>
+              <strong>Visste du att?</strong><br>
+              Den första bok som någonsin trycktes och publicerades var The Gutenberg Bible år 1453. Idag beräknas närmare en miljon
+              nya böcker publiceras varje år i världen och i mitten av år 2017 uppskattades det totala antalet unika böcker i världen vara
+              hela 134,399,411 stycken.
+              <a href="https://blog.anypromo.com/36-fun-facts-books/"><br>[AnyPromo]</a>
+
+            </template
+>>>>>>> main
             >
           </Facts>
 
@@ -215,7 +228,7 @@ h2 {
     height: 200px;
   }
   h2{
-    margin-top: 3em;
+    margin-top: 2em;
     margin-bottom: 2em;
   }
 }

@@ -2,6 +2,8 @@
   <div class="col">
     <div class="container">
       <h2>Kan en författare överleva vikten av sina böcker?</h2>
+      <h5>Välj en författare och få svar på om denna kan överleva den sammanlagda tyngden av sina samtliga publicerade böcker.
+      </h5>
       <div class="row">
         <div class="col-md-6 col-sm-12 order-2 order-md-1">
           <Facts>
@@ -9,10 +11,13 @@
               Välj en författare och få svar på om denna kan överleva den sammanlagda tyngden av sina samtliga publicerade böcker.
             </template>
             <template v-slot:text
-              >BookOfDeath ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
-              quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
-              quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis
-              possimus praesentium, quos saepe vitae.</template
+              ><strong>Visste du att?</strong><br>
+              År 2009 publicerades den (i alla fall då) tjockaste boken någonsin med en bredd på över 32 cm, bestående av 4032 sidor och
+              en vikt på 8,04 kg. Boken är en samling av Agatha Christies samtliga berättelser om Miss Marple, alltså hela 12 romaner och 20
+              kortare noveller, och gavs ut av HarperCollins i Storbritannien .
+              <a href="https://www.quora.com/What-is-the-thickest-book"><br>[Quora]
+              </a>
+            </template
             >
           </Facts>
         </div>
