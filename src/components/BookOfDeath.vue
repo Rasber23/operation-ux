@@ -147,6 +147,14 @@ export default {
 </script>
 
 <style scoped>
+.layer {
+  background-color: #fffaf0;
+  position: absolute;
+  z-index: 1;
+  width: 550px;
+  height: 550px;
+}
+
 .selectStyle {
   background-color: #fffaf0;
   font-family: "Source Sans Pro", sans-serif;
@@ -160,8 +168,7 @@ h2 {
   font-size: 28px;
 }
 
-#arowCon{
-
+#arowCon {
   position: fixed;
   bottom: 0;
   margin-bottom: 3em;
