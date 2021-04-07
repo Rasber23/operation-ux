@@ -51,6 +51,7 @@ export default {
   padding: 0;
   padding-top: 1em;
   padding-right: 1em;
+  min-width: 250px;
 }
 
 .chartbar-nav {
