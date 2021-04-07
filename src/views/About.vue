@@ -6,9 +6,8 @@
         <div class="aboutText">
           <h1>Om oss</h1>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur maxime maiores error, quibusdam harum
-            ad nostrum dolor sint tenetur atque nobis ipsa excepturi praesentium, reprehenderit explicabo dignissimos
-            recusandae.
+            Denna hemsida är skapad i ett sju veckors långt projekt av studerande på yrkeshögskolan Yrgo i Göteborg och använder sig av
+            data hämtad från Open Librarys API. Om du vill lära känna medlemmarna i teamet närmare kan du ta en titt nedan.
           </p>
         </div>
       </div>

@@ -5,11 +5,12 @@
         <div class="col order-2 order-md-1">
           <Facts>
             <template v-slot:heading>Hur har olika genrers populäritet förändrats genom åren?</template>
-            <template v-slot:text
-              >LineChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
-              quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
-              quasi quod ratione repellat ut vel velit? Cum dolores ea facere facilis ipsum natus officia officiis
-              possimus praesentium, quos saepe vitae.
+            <template v-slot:text>
+              <strong>Visste du att?</strong><br>
+              Baserat på en studie publicerad 2012 som tagit fram antalet sålda kopior av böcker de senaste 50 åren så är Bibeln (3,9
+              miljarder kopior), Quotations from Chairman Mao Tse-Tung (820 miljoner kopior) och Harry Potter (400 miljoner kopior) de tre
+              mest lästa böckerna i världen.
+              <a href="https://www.businessinsider.com/the-top-10-most-read-books-in-the-world-infographic-2012-12?r=US&IR=T"><br>[BusinessInsider]</a>
             </template>
           </Facts>
         </div>
