@@ -15,10 +15,8 @@
               nya böcker publiceras varje år i världen och i mitten av år 2017 uppskattades det totala antalet unika böcker i världen vara
               hela 134,399,411 stycken.
               <br>
-              <a herf="https://blog.anypromo.com/36-fun-facts-books/">[AnyPromo]</a>
-            </template
-
-            >
+              <a href="https://blog.anypromo.com/36-fun-facts-books/">[AnyPromo]</a>
+            </template>
           </Facts>
 
         </div>
