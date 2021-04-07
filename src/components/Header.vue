@@ -32,12 +32,12 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
                 <router-link class="dropdown-item" to="/charts/linechart"
-                  >Publicerade verk inom genre per år</router-link
+                  >Genres popularitet genom åren</router-link
                 >
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link class="dropdown-item" to="/charts/barchart">Genres popularitet genom åren</router-link>
+                <router-link class="dropdown-item" to="/charts/barchart">Publicerade verk inom genre per år</router-link>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
