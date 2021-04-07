@@ -5,6 +5,9 @@
       <div class="row">
         <div class="col order-2 order-md-1">
           <Facts>
+            <template v-slot:subheading>
+              Välj ett år och se vilka fem genrer som blev mest publicerade det året.
+            </template>
             <template v-slot:text
               >BarChart ipsum dolor sit amet, consectetur adipisicing elit. Aperiam excepturi illo iure minus neque
               quaerat quam sapiente, tempora! A aut beatae consequatur dolor facere fuga, libero maiores nostrum optio
