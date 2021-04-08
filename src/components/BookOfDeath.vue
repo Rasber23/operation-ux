@@ -6,17 +6,16 @@
         <div class="col-md-6 col-sm-12 order-2 order-md-1">
           <Facts>
             <template v-slot:subheading>
-              Välj en författare och få svar på om denna kan överleva den sammanlagda tyngden av sina samtliga publicerade böcker.
+              Välj en författare och få svar på om denna kan överleva den sammanlagda tyngden av sina samtliga
+              publicerade böcker.
             </template>
             <template v-slot:text
-              ><strong>Visste du att?</strong><br>
-              År 2009 publicerades den (i alla fall då) tjockaste boken någonsin med en bredd på över 32 cm, bestående av 4032 sidor och
-              en vikt på 8,04 kg. Boken är en samling av Agatha Christies samtliga berättelser om Miss Marple, alltså hela 12 romaner och 20
-              kortare noveller, och gavs ut av HarperCollins i Storbritannien .
-              <a href="https://www.quora.com/What-is-the-thickest-book"><br>[Quora]
-              </a>
-            </template
-            >
+              ><strong>Visste du att?</strong><br />
+              År 2009 publicerades den (i alla fall då) tjockaste boken någonsin med en bredd på över 32 cm, bestående
+              av 4032 sidor och en vikt på 8,04 kg. Boken är en samling av Agatha Christies samtliga berättelser om Miss
+              Marple, alltså hela 12 romaner och 20 kortare noveller, och gavs ut av HarperCollins i Storbritannien .
+              <a href="https://www.quora.com/What-is-the-thickest-book"><br />[Quora] </a>
+            </template>
           </Facts>
         </div>
         <div class="col-md-6 col-sm-12 order-1 order-md-2">
@@ -38,24 +37,25 @@
           </div>
           <div v-show="first" id="result">
             <div id="surviveCon" v-if="show">
-              <img src="./../assets/överlever.png" alt="" />
+              <img class="size" src="./../assets/överlever.png" alt="" />
               <br />
               <br />
               <h4>
-                <strong>{{ selected }} survived!</strong>
+                <strong>{{ selected }} överlevde!</strong>
               </h4>
               <p v-show="showDeathTimer">
-                ...but would die after {{ minToSurvive }}min and {{ secToSurvive }} sec under the weight.
+                ...men skulle dö efter {{ minToSurvive }} minuter och {{ secToSurvive }} sekunder under vikten av
+                böckerna.
               </p>
               <!-- <p>{{ selected }} has published {{ numberOfPublications }} books.</p> -->
               <br />
             </div>
             <div id="deathCon" v-else>
-              <img src="./../assets/krossad.png" alt="" />
+              <img class="size" src="./../assets/krossad.png" alt="" />
               <br />
               <br />
               <h5>
-                <strong>{{ selected }} did not survive the weight of the books!</strong>
+                <strong>{{ selected }} överlevde icke vikten av sina böcker!</strong>
               </h5>
               <!-- <p>{{ selected }} has published {{ numberOfPublications }} books.</p> -->
             </div>
@@ -64,9 +64,21 @@
       </div>
       <div id="arowCon">
         <router-link to="/charts/barchart">
-          <img src="../assets/Icons/arrow-up-red.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+          <img
+            src="../assets/Icons/arrow-up-red.svg"
+            alt=""
+            width="30"
+            height="24"
+            class="d-inline-block align-text-top"
+          />
         </router-link>
-          <img src="../assets/Icons/arrow-down-grey.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
+        <img
+          src="../assets/Icons/arrow-down-grey.svg"
+          alt=""
+          width="30"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
       </div>
     </div>
   </div>
@@ -89,7 +101,7 @@ export default {
       secToSurvive: 0,
       numberOfPublications: 0,
       isAlive: true,
-      selected: "Pick an Author",
+      selected: "Välj en författare",
       show: true,
       first: false,
       fetchReady: true,
@@ -147,6 +159,14 @@ export default {
 </script>
 
 <style scoped>
+.layer {
+  background-color: #fffaf0;
+  position: absolute;
+  z-index: 1;
+  width: 35em;
+  height: 35em;
+}
+
 .selectStyle {
   background-color: #fffaf0;
   font-family: "Source Sans Pro", sans-serif;
@@ -160,10 +180,27 @@ h2 {
   font-size: 28px;
 }
 
-#arowCon{
-
+#arowCon {
   position: fixed;
   bottom: 0;
   margin-bottom: 3em;
+}
+
+/*---------------------------------- för mobileview ----------------------------------*/
+@media screen and (max-width: 576px) {
+  .layer {
+    width: 350px;
+    height: 500px;
+  }
+
+  h2 {
+    margin-top: 2em;
+    margin-bottom: 2em;
+  }
+
+  .size {
+    width: 350px;
+    height: 400px;
+  }
 }
 </style>
