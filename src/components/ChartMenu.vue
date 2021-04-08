@@ -15,7 +15,7 @@
       </li>
       <li class="chart-item">
         <router-link class="chart-link" to="/charts/bookofdeath">
-         <img class="paddingForSvg" src="./../assets/Icons/Falling_book.svg" alt="" />
+          <img class="paddingForSvg" src="./../assets/Icons/Falling_book.svg" alt="" />
           <span>Kan författaren överleva vikten av sina böcker</span>
         </router-link>
       </li>
@@ -34,9 +34,7 @@ export default {
 }
 </script>
 
-
 <style scoped>
-
 .paddingForSvg {
   padding: 2em;
 }

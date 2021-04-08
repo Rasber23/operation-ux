@@ -23,7 +23,6 @@
             <option :value="selected">{{ selected }}</option>
             <option>Gustave Flaubert</option>
             <option>Leo Tolstoy</option>
-            <option>William Shakespeare</option>
             <option>James Joyce</option>
             <option>Fyodor Dostoevsky</option>
             <option>William Faulkner</option>

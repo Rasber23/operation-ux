@@ -1,9 +1,9 @@
 <template>
   <!-- <button class="btn buttonColor"> -->
-    <!-- <button class="btn btn-close btn-close-white btn-sm"></button> -->
-    <button :value="button" class="btn btn-sm buttonColor">
-      <slot></slot>
-    </button>
+  <!-- <button class="btn btn-close btn-close-white btn-sm"></button> -->
+  <button :value="button" class="btn btn-sm buttonColor">
+    <slot></slot>
+  </button>
   <!-- </button> -->
 </template>
 

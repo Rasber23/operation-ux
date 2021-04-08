@@ -14,10 +14,7 @@
         aria-label="Toggle navigation"
       >
         <span>
-          <img
-                src="./../assets/Icons/Hamburger_meny.svg"
-                alt=""
-              />
+          <img src="./../assets/Icons/Hamburger_meny.svg" alt="" />
         </span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,13 +32,13 @@
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
               <li>
-                <router-link class="dropdown-item" to="/charts/linechart"
-                  >Genres popularitet genom åren</router-link
-                >
+                <router-link class="dropdown-item" to="/charts/linechart">Genres popularitet genom åren</router-link>
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
-                <router-link class="dropdown-item" to="/charts/barchart">Publicerade verk inom genre per år</router-link>
+                <router-link class="dropdown-item" to="/charts/barchart"
+                  >Publicerade verk inom genre per år</router-link
+                >
               </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
@@ -82,12 +79,12 @@ export default {
 }
 
 .custom-toggler.navbar-toggler {
-  border-color: rgb(255,102,203);
-} 
+  border-color: rgb(255, 102, 203);
+}
 
 .navbar-light .navbar-toggler {
-    color: #FFFAF0;
-    border-color: #FFFAF0;
+  color: #fffaf0;
+  border-color: #fffaf0;
 }
 
 .navbar .navbar-nav > li .navbar-item,

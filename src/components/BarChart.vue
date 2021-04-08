@@ -6,20 +6,18 @@
       <div class="row">
         <div class="col order-2 order-md-1">
           <Facts>
-
             <template v-slot:subheading>
               Välj ett år och se vilka fem genrer som blev mest publicerade det året.
             </template>
             <template v-slot:text>
               <strong>Visste du att?</strong><br />
-              Den första bok som någonsin trycktes och publicerades var The Gutenberg Bible år 1453. Idag beräknas närmare en miljon
-              nya böcker publiceras varje år i världen och i mitten av år 2017 uppskattades det totala antalet unika böcker i världen vara
-              hela 134,399,411 stycken.
-              <br>
+              Den första bok som någonsin trycktes och publicerades var The Gutenberg Bible år 1453. Idag beräknas
+              närmare en miljon nya böcker publiceras varje år i världen och i mitten av år 2017 uppskattades det totala
+              antalet unika böcker i världen vara hela 134,399,411 stycken.
+              <br />
               <a href="https://blog.anypromo.com/36-fun-facts-books/">[AnyPromo]</a>
             </template>
           </Facts>
-
         </div>
         <div class="col order-1 order-md-2">
           <select class="form-select selectStyle" v-model="selected" @change="clicked">
@@ -42,14 +40,26 @@
         </div>
       </div>
     </div>
-        <div id="arowCon">
-          <router-link to="/charts/lineChart">
-            <img src="../assets/Icons/arrow-up-red.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
-            </router-link>
-            <router-link to="/charts/BookOfDeath">
-              <img src="../assets/Icons/arrow-down-red.svg" alt="" width="30" height="24" class="d-inline-block align-text-top" />
-          </router-link>
-        </div>
+    <div id="arowCon">
+      <router-link to="/charts/lineChart">
+        <img
+          src="../assets/Icons/arrow-up-red.svg"
+          alt=""
+          width="30"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
+      </router-link>
+      <router-link to="/charts/BookOfDeath">
+        <img
+          src="../assets/Icons/arrow-down-red.svg"
+          alt=""
+          width="30"
+          height="24"
+          class="d-inline-block align-text-top"
+        />
+      </router-link>
+    </div>
   </div>
 </template>
 
@@ -131,11 +141,11 @@ export default {
     this.listOfSubjects.length = 0
     for (const subject of ListOfSubjects) {
       promises.push(this.loadApi(subject))
-      console.log("detta är subjectet"+subject);
+      console.log("detta är subjectet" + subject)
     }
 
     for (const p of promises) {
-     this.fetchReady = false
+      this.fetchReady = false
       await p
     }
 
@@ -145,17 +155,15 @@ export default {
     async loadApi(subject) {
       const apiResp = await fetch(`https://openlibrary.org/subjects/${subject}.json?published_in=${this.selected}`)
       const apiData = await apiResp.json()
-      console.log("data :  "+ apiData.work_count+" " + apiData.name)
+      console.log("data :  " + apiData.work_count + " " + apiData.name)
       this.listOfdata.push(apiData.work_count)
       this.listOfSubjects.push(apiData.name)
-     // console.log("ListORDNING"+this.listOfSubjects )
+      // console.log("ListORDNING"+this.listOfSubjects )
       //console.log("data", this.series[0].data)
     },
 
     updateChart() {
-
       this.chartOptions.xaxis.categories.length = 0
-
 
       this.chartOptions.xaxis.categories.push(...this.listOfSubjects)
       console.log(this.listOfSubjects)
@@ -179,23 +187,19 @@ export default {
       for (const subject of ListOfSubjects) {
         promises.push(this.loadApi(subject))
         console.log(subject)
-
       }
 
       for (const p of promises) {
         this.fetchReady = false
         await p
-      this.updateChart()
+        this.updateChart()
       }
-
     },
   },
 }
 </script>
 <style scoped>
-
-#arowCon{
-
+#arowCon {
   position: fixed;
   bottom: 0;
   margin-bottom: 3em;
@@ -227,7 +231,7 @@ h2 {
     width: 350px;
     height: 200px;
   }
-  h2{
+  h2 {
     margin-top: 2em;
     margin-bottom: 2em;
   }

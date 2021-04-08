@@ -62,7 +62,7 @@ export default {
     removeMask() {},
   },
   watch: {
-    width: function () {
+    width: function() {
       if (this.width < 768 && !this.isMobile) {
         console.log("mobile!")
         this.isMobile = true

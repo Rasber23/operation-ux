@@ -1,13 +1,13 @@
 <template>
-
   <div class="container">
     <div class="row">
       <div class="col col-lg-10">
         <div class="aboutText">
           <h1>Om oss</h1>
           <p>
-            Denna hemsida är skapad i ett sju veckors långt projekt av studerande på yrkeshögskolan Yrgo i Göteborg och använder sig av
-            data hämtad från Open Librarys API. Om du vill lära känna medlemmarna i teamet närmare kan du ta en titt nedan.
+            Denna hemsida är skapad i ett sju veckors långt projekt av studerande på yrkeshögskolan Yrgo i Göteborg och
+            använder sig av data hämtad från Open Librarys API. Om du vill lära känna medlemmarna i teamet närmare kan
+            du ta en titt nedan.
           </p>
         </div>
       </div>
@@ -33,7 +33,6 @@
     </div>
     <div class="footer"></div>
   </div>
-
 </template>
 
 <script>
@@ -81,7 +80,6 @@ h1 {
   margin-bottom: 5%;
   width: 60%;
 }
-
 
 /*---------------------------------- för mobileview ----------------------------------*/
 @media screen and (max-width: 576px) {
