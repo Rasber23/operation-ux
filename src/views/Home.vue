@@ -56,16 +56,24 @@ export default {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin-top: 1em;
-  margin-bot: 2em;
+  margin-top: 3em;
+  margin-bottom: 2em;
 }
 .homeNav {
-  height: 5em;
-  width: 5em;
+  height: 6em;
+  width: 6em;
   background: #6f1d1b;
   border-radius: 3px;
+  padding: 1em;
 }
 p {
   color: #fffaf0;
+}
+
+/*---------------------------------- för mobileview ----------------------------------*/
+@media screen and (max-width: 576px) {
+  #navCON {
+    display: none;
+  }
 }
 </style>
