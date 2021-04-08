@@ -13,6 +13,12 @@ const FetchService = {
     }
     return workCount
   },
+
+  async workCountForOneSubject(selected) {
+    let resp = await fetch("https://openlibrary.org/subjects/" + selected + ".json?published_in=1920")
+    let json = await resp.json()
+    return json.work_count
+  },
 }
 
 export default FetchService
