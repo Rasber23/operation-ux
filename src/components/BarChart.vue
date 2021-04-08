@@ -125,15 +125,17 @@ export default {
     }
   },
   async created() {
+    console.log("test")
     const ListOfSubjects = ["dance", "film", "painting", "design", "music"]
     const promises = []
-
+    this.listOfSubjects.length = 0
     for (const subject of ListOfSubjects) {
       promises.push(this.loadApi(subject))
+      console.log("detta är subjectet"+subject);
     }
 
     for (const p of promises) {
-      this.fetchReady = false
+     this.fetchReady = false
       await p
     }
 
@@ -143,42 +145,49 @@ export default {
     async loadApi(subject) {
       const apiResp = await fetch(`https://openlibrary.org/subjects/${subject}.json?published_in=${this.selected}`)
       const apiData = await apiResp.json()
-      console.log(await apiData.work_count)
+      console.log("data :  "+ apiData.work_count+" " + apiData.name)
       this.listOfdata.push(apiData.work_count)
       this.listOfSubjects.push(apiData.name)
-      console.log("data", this.series[0].data)
+     // console.log("ListORDNING"+this.listOfSubjects )
+      //console.log("data", this.series[0].data)
     },
 
     updateChart() {
+
+      this.chartOptions.xaxis.categories.length = 0
+
+
+      this.chartOptions.xaxis.categories.push(...this.listOfSubjects)
+      console.log(this.listOfSubjects)
+
+      console.log("efter", this.chartOptions.xaxis.categories.length)
+      this.fetchReady = true
+
       this.series = [
         {
           data: this.listOfdata,
         },
       ]
-
-      this.chartOptions.xaxis.categories.length = 0
-      this.listOfSubjects.length = 5
-      console.log("kattiGORIER", this.chartOptions.xaxis.categories.length)
-
-      this.chartOptions.xaxis.categories.push(...this.listOfSubjects)
-      console.log("efter", this.chartOptions.xaxis.categories.length)
-      this.fetchReady = true
     },
 
     async clicked() {
-      const ListOfSubjects = ["dance", "film", "painting", "design", "music"]
-      const promises = []
+      console.log("DETTA ÄR KLICKED LISTAN BLIR UPPDATERAD")
       this.listOfdata.length = []
+      const promises = []
+      const ListOfSubjects = ["dance", "film", "painting", "design", "music"]
+      this.listOfSubjects.length = 0
       for (const subject of ListOfSubjects) {
         promises.push(this.loadApi(subject))
+        console.log(subject)
+
       }
 
       for (const p of promises) {
         this.fetchReady = false
         await p
+      this.updateChart()
       }
 
-      this.updateChart()
     },
   },
 }
