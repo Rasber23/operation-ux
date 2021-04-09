@@ -12,25 +12,25 @@ const users = [
     "Frida",
     "Ux-designer",
     "Min favoritbok är Harry Potter-böckerna då jag vill kunna skapa magi. Och vem vill inte dricka en kopp te i Hagrids stuga",
-    require("./../assets/person1.png")
+    require("./../assets/Foton/frida.png")
   ),
   new User(
     "Nathalie",
     "Ux-designer",
     "Min favoritbok är Sagan om ringen-trilogin då jag alltid har velat promenera i Middle Earth och äta po-ta-toes.",
-    require("./../assets/person1.png")
+    require("./../assets/Foton/nathalie.jpg")
   ),
   new User(
     "August",
     "Ux-designer",
     " Min favoritbok är Avatar The last Airbender: The Rise of Kyoshi - Att kunna slåss med kraften av de fyra elementen låter underbart.",
-    require("./../assets/person1.png")
+    require("./../assets/Foton/august.jpg")
   ),
   new User(
     "Linus",
     "Ux-designer",
     "Min favoritbok är Robinson Crusoe då tanken på att ha min egen farm på en öde ö är ganska lockande!",
-    require("./../assets/logo.png")
+    require("./../assets/Foton/linus.jpg")
   ),
   new User(
     "Rasmus",
@@ -41,8 +41,8 @@ const users = [
   new User(
     "Lukas",
     "Utvecklare",
-    "Kafka på Stranden av Haruki Murakami, då man aldrig vet vad som väntar sig på nästa rad.",
-    require("./../assets/person1.png")
+    "Kafka på Stranden av Haruki Murakami, då man aldrig vet vad som väntar på nästa rad.",
+    require("./../assets/Foton/lukas.jpeg")
   ),
   new User(
     "Helena",
