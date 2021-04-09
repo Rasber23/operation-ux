@@ -17,3 +17,37 @@
     --secondary: #591716;
     --white: #FFFAF0;
   }
+
+  h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+  }
+
+  .layer {
+    background-color: #fffaf0e5;
+    position: absolute;
+    z-index: 1;
+    width: 550px;
+    height: 340px;
+  }
+
+  #arowCon {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 3em;
+  }
+
+  .selectStyle {
+    background-color: #fffaf0;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 16px;
+    color: #333333;
+  }
+
+  /*---------------------------------- för mobileview ----------------------------------*/
+  @media screen and (max-width: 576px) {
+    .layer {
+      width: 350px;
+      height: 200px;
+    }
+  }

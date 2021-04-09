@@ -1,9 +1,11 @@
 <template>
   <div class="col">
     <div class="container">
-      <h2>Hur har olika genrers populäritet förändrats genom åren?</h2>
+      <div class="row my-5">
+        <h2>Hur har olika genrers populäritet förändrats genom åren?</h2>
+      </div>
       <div class="row">
-        <div class="col order-2 order-md-1">
+        <div class="col-lg-6 col-sm-12 order-2 order-md-1">
           <Facts>
             <template v-slot:subheading>
               Välj genrer och jämför hur deras popularitet har förändrats de senaste hundra åren. Du kan välja högst fem
@@ -22,7 +24,7 @@
             </template>
           </Facts>
         </div>
-        <div class="col order-1 order-md-2">
+        <div class="col-lg-6 col-sm-12 order-1 order-md-2">
           <div class="row d-flex justify-content-center">
             <div class="col-md-4 col-6">
               <select class="form-select selectStyle" v-model="selected" @change="clicked" :disabled="inputDisabled">
@@ -239,36 +241,4 @@ export default {
 </script>
 
 <style scoped>
-h2 {
-  margin-top: 2em;
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-}
-
-.selectStyle {
-  background-color: #fffaf0;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 16px;
-  color: #333333;
-}
-
-.layer {
-  background-color: #fffaf0e5;
-  position: absolute;
-  z-index: 1;
-  width: 550px;
-  height: 340px;
-}
-#arowCon {
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 3em;
-}
-/*---------------------------------- för mobileview ----------------------------------*/
-@media screen and (max-width: 576px) {
-  .layer {
-    width: 350px;
-    height: 200px;
-  }
-}
 </style>

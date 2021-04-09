@@ -1,9 +1,11 @@
 <template>
   <div class="col">
     <div class="container">
-      <h2>Kan en författare överleva vikten av sina böcker?</h2>
+      <div class="row my-5">
+        <h2>Kan en författare överleva vikten av sina böcker?</h2>
+      </div>
       <div class="row">
-        <div class="col-md-6 col-sm-12 order-2 order-md-1">
+        <div class="col-lg-6 col-sm-12 order-2 order-md-1">
           <Facts>
             <template v-slot:subheading>
               Välj en författare och få svar på om denna kan överleva den sammanlagda tyngden av sina samtliga
@@ -18,7 +20,7 @@
             </template>
           </Facts>
         </div>
-        <div class="col-md-6 col-sm-12 order-1 order-md-2">
+        <div class="col-lg-6 col-sm-12 order-1 order-md-2">
           <select class="form-select selectStyle" v-model="selected" @change="clicked">
             <option :value="selected">{{ selected }}</option>
             <option>Gustave Flaubert</option>
@@ -158,48 +160,8 @@ export default {
 </script>
 
 <style scoped>
-.layer {
-  background-color: #fffaf0;
-  position: absolute;
-  z-index: 1;
-  width: 35em;
-  height: 35em;
-}
-
-.selectStyle {
-  background-color: #fffaf0;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 16px;
-  color: #333333;
-}
-
-h2 {
-  margin-top: 2em;
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-}
-
-#arowCon {
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 3em;
-}
-
-/*---------------------------------- för mobileview ----------------------------------*/
-@media screen and (max-width: 576px) {
-  .layer {
-    width: 350px;
-    height: 500px;
-  }
-
-  h2 {
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-
-  .size {
-    width: 350px;
-    height: 400px;
-  }
+.size {
+  width: 350px;
+  height: 400px;
 }
 </style>

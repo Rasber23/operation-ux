@@ -1,10 +1,11 @@
 <template>
   <div class="col">
     <div class="container">
+      <div class="row my-5">
       <h2>Vilka är det valda årets mest publicerade genrer?</h2>
-
+      </div>
       <div class="row">
-        <div class="col order-2 order-md-1">
+        <div class="col-md-6 col-sm-12 order-2 order-md-1">
           <Facts>
             <template v-slot:subheading>
               Välj ett år och se vilka fem genrer som blev mest publicerade det året.
@@ -19,7 +20,7 @@
             </template>
           </Facts>
         </div>
-        <div class="col order-1 order-md-2">
+        <div class="col-lg-6 col-sm-12 order-1 order-md-2">
           <select class="form-select selectStyle" v-model="selected" @change="clicked">
             <option :value="selected">{{ selected }}</option>
             <option>2020</option>
@@ -199,41 +200,4 @@ export default {
 }
 </script>
 <style scoped>
-#arowCon {
-  position: fixed;
-  bottom: 0;
-  margin-bottom: 3em;
-}
-
-.selectStyle {
-  background-color: #fffaf0;
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 16px;
-  color: #333333;
-}
-
-.layer {
-  background-color: #fffaf0e5;
-  position: absolute;
-  z-index: 1;
-  width: 550px;
-  height: 340px;
-}
-
-h2 {
-  margin-top: 2em;
-  font-family: "Playfair Display", serif;
-  font-size: 28px;
-}
-/*---------------------------------- för mobileview ----------------------------------*/
-@media screen and (max-width: 576px) {
-  .layer {
-    width: 350px;
-    height: 200px;
-  }
-  h2 {
-    margin-top: 2em;
-    margin-bottom: 2em;
-  }
-}
 </style>
