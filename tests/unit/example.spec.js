@@ -10,7 +10,7 @@ describe("FetchService.js", () => {
   })
 
   it("checks for how many books published in subject love in 1920", async () => {
-    let work_count = await FetchService.workCountForOneSubject("love")
+    let work_count = await FetchService.workCountForOneSubjectAndYear("love", 1920)
 
     expect(work_count).to.equal(17)
     expect(fetchMock.called("https://openlibrary.org/subjects/love.json?published_in=1920")).to.be.true
@@ -20,7 +20,7 @@ describe("FetchService.js", () => {
 })
 
 describe("BookOfDeath", () => {
-  it("contains a heading", () => {
+  it("contains a heading text", () => {
     const text = "Kan en författare överleva vikten av sina böcker?"
     const wrapper = shallowMount(BookOfDeath)
     expect(wrapper.text()).to.include(text)
