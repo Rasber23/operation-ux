@@ -48,7 +48,7 @@ const users = [
     "Helena",
     "Utvecklare",
     "En av mina favoritböcker är Sapiens av Yuval Noah Harari. Man får en större förståelse för mänskligheten, vart vi kommer ifrån och hur vi vi råkade hamna där vi är idag.",
-    require("./../assets/person1.png")
+    require("./../assets/Foton/helena.jpg")
   ),
 ]
 
