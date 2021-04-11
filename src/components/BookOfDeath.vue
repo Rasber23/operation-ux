@@ -48,7 +48,6 @@
                 ...men skulle dö efter {{ minToSurvive }} minuter och {{ secToSurvive }} sekunder under vikten av
                 böckerna.
               </p>
-              <!-- <p>{{ selected }} has published {{ numberOfPublications }} books.</p> -->
               <br />
             </div>
             <div id="deathCon" v-else>
@@ -58,7 +57,6 @@
               <h5>
                 <strong>{{ selected }} överlevde icke vikten av sina böcker!</strong>
               </h5>
-              <!-- <p>{{ selected }} has published {{ numberOfPublications }} books.</p> -->
             </div>
           </div>
         </div>

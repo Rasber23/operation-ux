@@ -111,7 +111,6 @@ export default {
           style: {
             colors: ["#333333"],
           },
-          // offsetY: 30
         },
         xaxis: {
           categories: [],
@@ -159,8 +158,6 @@ export default {
       console.log("data :  " + apiData.work_count + " " + apiData.name)
       this.listOfdata.push(apiData.work_count)
       this.listOfSubjects.push(apiData.name)
-      // console.log("ListORDNING"+this.listOfSubjects )
-      //console.log("data", this.series[0].data)
     },
 
     updateChart() {

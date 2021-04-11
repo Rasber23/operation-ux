@@ -1,3 +1,5 @@
+// service for getting names, info and images for everyone involved for the about page
+
 class User {
   constructor(name, role, text, image) {
     this.name = name

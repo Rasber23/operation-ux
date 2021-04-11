@@ -229,6 +229,7 @@ export default {
       this.updateChart()
     },
 
+    // disables select when there are 5 subjects chosen at a time
     inputDisable() {
       if (this.components.length == 5) {
         this.inputDisabled = true

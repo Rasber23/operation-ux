@@ -1,3 +1,5 @@
+// Service for fetching from API:s
+
 const years = [1920, 1940, 1960, 1980, 2000, 2020]
 
 let workCount = []

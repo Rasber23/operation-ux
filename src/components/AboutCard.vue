@@ -1,3 +1,5 @@
+// component for individual cards for every person on the about page
+
 <template>
   <div class="col">
     <div class="card border-0 bg-color text-start text-dark" style="max-width: 540px">

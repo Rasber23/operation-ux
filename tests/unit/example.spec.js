@@ -26,20 +26,3 @@ describe("BookOfDeath", () => {
     expect(wrapper.text()).to.include(text)
   })
 })
-
-//     before(() => {
-//       fetchMock.get("http://example.com", { data: 200 })
-//     })
-//   it("checks for a proper joke", async () => {
-//     let data = await fetch('http://example.com')
-//     expect(data).to.equal(200)
-//     // expect(fetchMock.called("https://icanhazdadjoke.com/")).to.be.true
-//   })
-
-//   after(() => fetchMock.restore())
-// })
-
-// fetchMock.mock('http://example.com', 200);
-// const res = await fetch('http://example.com');
-// assert(res.ok);
-// fetchMock.restore();
