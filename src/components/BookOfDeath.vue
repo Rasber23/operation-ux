@@ -162,4 +162,16 @@ export default {
   width: 350px;
   height: 400px;
 }
+
+.layer {
+  height: 500px;
+  background-color: #fffaf0;
+}
+
+/*---------------------------------- för mobileview ----------------------------------*/
+@media screen and (max-width: 576px) {
+  .layer {
+    height: 500px;
+  }
+}
 </style>
