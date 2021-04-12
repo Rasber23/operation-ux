@@ -155,7 +155,6 @@ export default {
     async loadApi(subject) {
       const apiResp = await fetch(`https://openlibrary.org/subjects/${subject}.json?published_in=${this.selected}`)
       const apiData = await apiResp.json()
-      console.log("data :  " + apiData.work_count + " " + apiData.name)
       this.listOfdata.push(apiData.work_count)
       this.listOfSubjects.push(apiData.name)
     },
@@ -164,9 +163,7 @@ export default {
       this.chartOptions.xaxis.categories.length = 0
 
       this.chartOptions.xaxis.categories.push(...this.listOfSubjects)
-      console.log(this.listOfSubjects)
 
-      console.log("efter", this.chartOptions.xaxis.categories.length)
       this.fetchReady = true
 
       this.series = [
@@ -177,7 +174,6 @@ export default {
     },
 
     async clicked() {
-      console.log("DETTA ÄR KLICKED LISTAN BLIR UPPDATERAD")
       this.listOfdata.length = []
       const promises = []
       const ListOfSubjects = ["dance", "film", "painting", "design", "music"]

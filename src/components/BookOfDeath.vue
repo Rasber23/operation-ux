@@ -119,13 +119,16 @@ export default {
       this.calculateDeath(apiData.numFound)
       this.fetchReady = true
     },
+    /*
+     * Check takes num of works and checks weight against deathTolerance to display correct content.
+     *
+     */
     calculateDeath(numberOfpublications) {
-      console.log(numberOfpublications)
       this.numberOfPublications = numberOfpublications
       const averageWeight = 0.7
       const totalWeight = numberOfpublications * averageWeight
-      console.log(totalWeight)
-      if (totalWeight < 500) {
+      const deathTolerance = 500
+      if (totalWeight < deathTolerance) {
         this.timeLeft(totalWeight)
         this.show = true
         this.first = true
@@ -134,11 +137,16 @@ export default {
         this.first = true
       }
     },
-
+    /*
+       * Dump method thats cumputes the time you have left to live if the weight is with the tolerances
+       * Link to the "scientific study" the method is based on
+       *https://www.quora.com/How-much-weight-does-it-take-to-crush-a-human-body
+       */
     timeLeft(totalWeight) {
       this.showDeathTimer = false
+      const surviveTolerance=120
       console.log(totalWeight)
-      if (totalWeight > 120) {
+      if (totalWeight > surviveTolerance) {
         console.log(this.showDeathTimer)
         this.showDeathTimer = true
         const magicNumber = 180

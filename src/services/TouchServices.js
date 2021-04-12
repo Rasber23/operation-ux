@@ -1,29 +1,35 @@
 import router from "@/router";
-
+//Services to support the Swipe functionality
 
 const TouchServices = {
+        /*
+       * Makes sure its a valid swipe on the y axes
+       * touchTolerance sets the sensitivity of the swipe
+       * */
     touchGateY(startY, endY, touchTolerance) {
         let touchTravelY = startY - endY
-
         if (Math.abs(touchTravelY) > touchTolerance && endY !== 0) {
-
             return true
         } else {
-
             return false
         }
     },
+    /*
+    * Makes sure its a valid swipe on the x axes
+    * touchTolerance sets the sensitivity of the swipe
+    * */
     touchGateX(startX, endX, touchTolerance) {
         let touchTravelX = startX - endX
-
         if (Math.abs(touchTravelX) > touchTolerance && endX !== 0) {
-
             return true
         } else {
-
             return false
         }
     },
+    /*
+   * interpret the swipe and checking the current location for correct navigation on the x axes
+   *
+   * */
     acceptedSwipeX(swipe, route) {
         switch (route.path) {
             case "/charts/linechart":
@@ -61,6 +67,10 @@ const TouchServices = {
                 console.log("Invalid SWIPE!")
         }
     },
+    /*
+    * interpret the swipe and checking the current location for correct navigation on the Y axes
+    *
+    * */
     acceptedSwipeY(swipe, route) {
         switch (route.path) {
             case "/charts/linechart":

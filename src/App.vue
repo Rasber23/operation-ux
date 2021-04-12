@@ -45,6 +45,10 @@ export default {
     showExit() {
       this.show = false
     },
+    /*
+* interpret every swipe and assigns the correct actions for x and y axes
+*
+* */
     touchControl() {
       let touchTravelY = this.startY - this.endY
       let touchTravelX = this.startX - this.endX
@@ -56,21 +60,20 @@ export default {
 
       if (TouchServices.touchGateY(this.startY, this.endY, this.touchTolerance)) {
         if (this.startY > this.endY && Math.abs(touchTravelX) < this.touchTolerance) {
-
           this.transitionName = "slide-up"
-          TouchServices.acceptedSwipeY("up",this.$route)
+          TouchServices.acceptedSwipeY("up", this.$route)
         } else if (this.startY < this.endY && Math.abs(touchTravelX) < this.touchTolerance) {
           this.transitionName = "slide-down"
-          TouchServices.acceptedSwipeY("down",this.$route)
+          TouchServices.acceptedSwipeY("down", this.$route)
         }
       }
       if (TouchServices.touchGateX(this.startX, this.endX, this.touchTolerance)) {
         if (this.startX > this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
           this.transitionName = "slide-right"
-          TouchServices.acceptedSwipeX("left",this.$route)
+          TouchServices.acceptedSwipeX("left", this.$route)
         } else if (this.startX < this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
           this.transitionName = "slide-left"
-          TouchServices.acceptedSwipeX("right",this.$route)
+          TouchServices.acceptedSwipeX("right", this.$route)
         }
       }
       this.startY = 0
@@ -78,11 +81,20 @@ export default {
       this.startX = 0
       this.endX = 0
     },
+    /*
+* records the start position of the swipe.
+*
+* */
 
     myTouchStartHandler(evt) {
       this.startX = evt.touches[0].screenX
       this.startY = evt.touches[0].screenY
     },
+
+    /*
+* records the end position of the swipe.
+*
+* */
     myTouchEndHandler(evt) {
       this.endX = evt.touches[0].screenX
       this.endY = evt.touches[0].screenY
