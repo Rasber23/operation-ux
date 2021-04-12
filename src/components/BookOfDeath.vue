@@ -126,12 +126,10 @@ export default {
       const totalWeight = numberOfpublications * averageWeight
       console.log(totalWeight)
       if (totalWeight < 500) {
-
         this.timeLeft(totalWeight)
         this.show = true
         this.first = true
       } else {
-
         this.show = false
         this.first = true
       }
