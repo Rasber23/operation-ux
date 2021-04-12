@@ -3,9 +3,9 @@
     <div class="row">
       <chart-menu></chart-menu>
 
-      <div class="col" @click="checkName">
+      <div class="col" >
         <router-view v-slot="{ Component }">
-          <transition :name="test">
+          <transition :name="transition">
             <component :is="Component" />
           </transition>
         </router-view>
@@ -20,14 +20,9 @@ import ChartMenu from "@/components/ChartMenu"
 export default {
   name: "Charts",
   components: { ChartMenu },
-  props: ["transitionName", "test"],
+  props: ["transition"],
   data() {
     return {}
-  },
-  methods: {
-    checkName() {
-      console.log("TRANS NAME;" + this.test)
-    },
   },
 }
 </script>

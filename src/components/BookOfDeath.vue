@@ -136,6 +136,7 @@ export default {
         this.first = true
       }
     },
+
     timeLeft(totalWeight) {
       this.showDeathTimer = false
       console.log(totalWeight)
@@ -146,10 +147,10 @@ export default {
         const relation = magicNumber / totalWeight
         const timeLeft = relation * 30
         const minLeft = timeLeft.toFixed(0)
-        const secleft = Math.abs((minLeft - timeLeft) * 60).toFixed(0)
+        const secLeft = Math.abs((minLeft - timeLeft) * 60).toFixed(0)
         this.minToSurvive = minLeft
-        this.secToSurvive = secleft
-        console.log("minLeft: ", minLeft, "SecLeft: ", Math.abs(secleft))
+        this.secToSurvive = secLeft
+        console.log("minLeft: ", minLeft, "SecLeft: ", Math.abs(secLeft))
         console.log("Would tie after ", timeLeft, "min")
       }
     },

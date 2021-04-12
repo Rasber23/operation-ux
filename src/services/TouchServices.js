@@ -6,10 +6,10 @@ const TouchServices = {
         let touchTravelY = startY - endY
 
         if (Math.abs(touchTravelY) > touchTolerance && endY !== 0) {
-            console.log("TRAVEL Y= " + touchTravelY)
+
             return true
         } else {
-            console.log("klick y")
+
             return false
         }
     },
@@ -17,10 +17,10 @@ const TouchServices = {
         let touchTravelX = startX - endX
 
         if (Math.abs(touchTravelX) > touchTolerance && endX !== 0) {
-            console.log("TRAVEL X= " + touchTravelX)
+
             return true
         } else {
-            console.log("klick x")
+
             return false
         }
     },
@@ -65,7 +65,6 @@ const TouchServices = {
         switch (route.path) {
             case "/charts/linechart":
                 if (swipe === "up") {
-                    console.log("thisTRANS " + this.transitionName)
                     router.push("/charts/barchart")
                     this.transitionName = "slide-down";
                 }

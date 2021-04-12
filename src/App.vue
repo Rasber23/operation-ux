@@ -11,7 +11,7 @@
     <Header></Header>
     <router-view v-slot="{ Component }">
       <transition :name="transitionName">
-        <component :is="Component" :test="transitionName"/>
+        <component :is="Component" :transition="transitionName"/>
       </transition>
     </router-view>
   </div>
