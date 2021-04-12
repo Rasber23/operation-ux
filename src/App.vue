@@ -1,17 +1,17 @@
 <template>
   <div id="greyOut" v-if="show" @click="this.show = false">
-    <img id="dasHand" src="./assets/Icons/hand.svg" alt="HELVETE"/>
+    <img id="dasHand" src="./assets/Icons/hand.svg" alt="HELVETE" />
   </div>
   <div
-      id="touchSurface"
-      v-on:touchstart="myTouchStartHandler"
-      v-on:touchmove="myTouchEndHandler"
-      v-on:touchend="touchControl"
+    id="touchSurface"
+    v-on:touchstart="myTouchStartHandler"
+    v-on:touchmove="myTouchEndHandler"
+    v-on:touchend="touchControl"
   >
     <Header></Header>
     <router-view v-slot="{ Component }">
       <transition :name="transitionName">
-        <component :is="Component" :test="transitionName"/>
+        <component :is="Component" :test="transitionName" />
       </transition>
     </router-view>
   </div>
@@ -19,7 +19,7 @@
 
 <script>
 import Header from "@/components/Header"
-import TouchServices from "@/services/TouchServices";
+import TouchServices from "@/services/TouchServices"
 
 export default {
   name: "App",
@@ -49,28 +49,30 @@ export default {
       let touchTravelY = this.startY - this.endY
       let touchTravelX = this.startX - this.endX
 
-      if (!TouchServices.touchGateX(this.startX, this.endX, this.touchTolerance) && !TouchServices.touchGateY(this.startY, this.endY, this.touchTolerance)) {
+      if (
+        !TouchServices.touchGateX(this.startX, this.endX, this.touchTolerance) &&
+        !TouchServices.touchGateY(this.startY, this.endY, this.touchTolerance)
+      ) {
         this.transitionName = ""
         this.show = false
       }
 
       if (TouchServices.touchGateY(this.startY, this.endY, this.touchTolerance)) {
         if (this.startY > this.endY && Math.abs(touchTravelX) < this.touchTolerance) {
-
           this.transitionName = "slide-up"
-          TouchServices.acceptedSwipeY("up",this.$route)
+          TouchServices.acceptedSwipeY("up", this.$route)
         } else if (this.startY < this.endY && Math.abs(touchTravelX) < this.touchTolerance) {
           this.transitionName = "slide-down"
-          TouchServices.acceptedSwipeY("down",this.$route)
+          TouchServices.acceptedSwipeY("down", this.$route)
         }
       }
       if (TouchServices.touchGateX(this.startX, this.endX, this.touchTolerance)) {
         if (this.startX > this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
           this.transitionName = "slide-right"
-          TouchServices.acceptedSwipeX("left",this.$route)
+          TouchServices.acceptedSwipeX("left", this.$route)
         } else if (this.startX < this.endX && Math.abs(touchTravelY) < this.touchTolerance) {
           this.transitionName = "slide-left"
-          TouchServices.acceptedSwipeX("right",this.$route)
+          TouchServices.acceptedSwipeX("right", this.$route)
         }
       }
       this.startY = 0
@@ -86,7 +88,7 @@ export default {
     myTouchEndHandler(evt) {
       this.endX = evt.touches[0].screenX
       this.endY = evt.touches[0].screenY
-    }
+    },
   },
 }
 </script>

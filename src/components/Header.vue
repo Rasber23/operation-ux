@@ -105,6 +105,6 @@ export default {
 }
 
 .dropdown-item:hover {
-    background-color: var(--primary);
+  background-color: var(--primary);
 }
 </style>

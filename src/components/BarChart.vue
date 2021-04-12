@@ -2,7 +2,7 @@
   <div class="col">
     <div class="container">
       <div class="row my-5">
-      <h2>Vilka är det valda årets mest publicerade genrer?</h2>
+        <h2>Vilka är det valda årets mest publicerade genrer?</h2>
       </div>
       <div class="row">
         <div class="col-md-6 col-sm-12 order-2 order-md-1">
@@ -196,5 +196,4 @@ export default {
   },
 }
 </script>
-<style scoped>
-</style>
+<style scoped></style>
