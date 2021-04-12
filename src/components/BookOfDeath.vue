@@ -126,12 +126,12 @@ export default {
       const totalWeight = numberOfpublications * averageWeight
       console.log(totalWeight)
       if (totalWeight < 500) {
-        console.log("SURVIE!")
+
         this.timeLeft(totalWeight)
         this.show = true
         this.first = true
       } else {
-        console.log("verry Mutch dead")
+
         this.show = false
         this.first = true
       }
